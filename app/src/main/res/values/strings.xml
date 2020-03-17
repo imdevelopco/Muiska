@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Muiska</string>
+    <!-- Elementos del Login !-->
+    <string name="login_edad">Ingresa tu edad</string>
+    <string name="login_nickname">Ingresa tu Nickname</string>
+    <string name="login_btn_Confirm">Ingresa tu Nickname</string>
+</resources>
