@@ -12,23 +12,26 @@
         android:id="@+id/textViewEdad"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginStart="124dp"
+        android:layout_marginTop="40dp"
         android:text="@string/login_edad"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputEditText2" />
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
 
     <ImageView
         android:id="@+id/logoLogin"
         android:layout_width="157dp"
         android:layout_height="144dp"
         android:layout_marginStart="76dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="76dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewNickname"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.392"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.102"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/logo" />
 
     <TextView
@@ -36,46 +39,74 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="5dp"
         android:text="@string/login_nickname"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.088"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logoLogin" />
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/textInputEdad"
-        android:layout_width="166dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="20dp"
-        android:hint="Edad"
-        android:inputType="number"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewEdad" />
 
     <Button
         android:id="@+id/confirmarLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="140dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginStart="132dp"
+        android:layout_marginTop="112dp"
         android:background="@color/colorPrimary"
+        android:onClick="validation"
         android:text="@string/login_btn_Confirm"
         android:textColor="@color/fondoAPP"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputEdad"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewEdad"
+        app:layout_constraintVertical_bias="0.052" />
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/textInputEditText2"
-        android:layout_width="142dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="20dp"
-        android:hint="Nickname"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout2"
+        android:layout_width="179dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/confirmarLogin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.069"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewNickname" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewEdad"
+        app:layout_constraintVertical_bias="0.461">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/inputEdad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Edad"
+            android:inputType="number" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout"
+        android:layout_width="182dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.07"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewNickname">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/inputTextNick"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="nick" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
