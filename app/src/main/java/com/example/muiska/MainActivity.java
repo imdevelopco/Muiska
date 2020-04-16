@@ -5,17 +5,23 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity  {
+    TextInputEditText inputEdad;
+    TextInputEditText inputName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+         inputEdad = (TextInputEditText)findViewById(R.id.inputEdad);
+         inputName = (TextInputEditText)findViewById(R.id.inputTextNick);
     }
 
     public  void cambiarActivity(View view){
@@ -32,8 +38,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void validation(View view){
-        TextInputEditText inputEdad = findViewById(R.id.inputEdad);
-        TextInputEditText inputName = findViewById(R.id.inputTextNick);
         int edadUser = 0;
 
         if (String.valueOf(inputEdad.getText()).length() == 0){
