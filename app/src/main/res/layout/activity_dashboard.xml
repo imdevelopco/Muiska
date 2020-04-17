@@ -4,14 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DashboardActivity">
+    tools:context=".views.DashboardActivity">
 
     <ImageView
-        android:id="@+id/imageView6"
+        android:id="@+id/imageStationOne"
         android:layout_width="100dp"
         android:layout_height="80dp"
         android:layout_marginStart="64dp"
         android:layout_marginTop="164dp"
+        android:onClick="cambiarActivity"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/bluestation" />
@@ -23,7 +24,7 @@
         android:layout_marginStart="64dp"
         android:layout_marginTop="96dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6"
+        app:layout_constraintTop_toBottomOf="@+id/imageStationOne"
         app:srcCompat="@drawable/redstation" />
 
     <ImageView
@@ -32,7 +33,7 @@
         android:layout_height="80dp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="164dp"
-        app:layout_constraintStart_toEndOf="@+id/imageView6"
+        app:layout_constraintStart_toEndOf="@+id/imageStationOne"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/greenstation" />
 
@@ -64,7 +65,7 @@
         android:layout_marginTop="16dp"
         android:text="0/10"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+        app:layout_constraintTop_toBottomOf="@+id/imageStationOne" />
 
     <TextView
         android:id="@+id/stationTwoTextView"

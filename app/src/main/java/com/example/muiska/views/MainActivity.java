@@ -1,4 +1,4 @@
-package com.example.muiska;
+package com.example.muiska.views;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.muiska.R;
+import com.example.muiska.views.DashboardActivity;
 import com.google.android.material.textfield.TextInputEditText;
 
 public class MainActivity extends AppCompatActivity {
