@@ -2,8 +2,10 @@ package com.example.muiska.views;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import android.view.View;
 import android.widget.TextView;
 
 import com.example.muiska.R;
@@ -23,5 +25,10 @@ public class NarrationActivity extends AppCompatActivity {
         NarrationDAO narrationDAO = new NarrationDAO(getApplicationContext());
         CharSequence enunciado = narrationDAO.getNarration(1).get(0);
         enunciadoTextView.setText(enunciado);
+    }
+
+    public  void cambiarActivity(View view){
+        Intent intent = new Intent(this, QuestionActivity.class);
+        startActivity(intent);
     }
 }
