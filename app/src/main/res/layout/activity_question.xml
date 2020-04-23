@@ -6,4 +6,56 @@
     android:layout_height="match_parent"
     tools:context=".views.QuestionActivity">
 
+    <TextView
+        android:id="@+id/titleQuestiontextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="44dp"
+        android:text="TextView"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/questionOnetextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="80dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleQuestiontextView" />
+
+    <TextView
+        android:id="@+id/questionTwotextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="80dp"
+        android:text="TextView"
+        app:layout_constraintStart_toEndOf="@+id/questionOnetextView"
+        app:layout_constraintTop_toBottomOf="@+id/titleQuestiontextView" />
+
+    <TextView
+        android:id="@+id/questionThreetextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="80dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/questionOnetextView" />
+
+    <TextView
+        android:id="@+id/questionFourtextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="96dp"
+        android:layout_marginTop="80dp"
+        android:text="TextView"
+        app:layout_constraintStart_toEndOf="@+id/questionThreetextView"
+        app:layout_constraintTop_toBottomOf="@+id/questionTwotextView" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

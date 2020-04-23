@@ -21,13 +21,13 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
         db.execSQL(UtilitiesDatabase.Tabla_Respuesta.CREATE_TABLE_RESPUESTA);
         db.execSQL(UtilitiesDatabase.Tabla_Pregunta.CREATE_TABLE_PREGUNTA);
         db.execSQL(UtilitiesDatabase.Tabla_Respuesta_Pregunta.CREATE_TABLE_RESPUESTA_PREGUNTA);
-        /* insert*/
+        /* inserts*/
         this.insertEstacion(db,"Costumbres y modos de vida");
         this.insertNarracion(db,(
-                "Los muiscas, eran grandes agricultores, cuidan la tierra y el agua como regalos que les habían dado los dioses."
-                +"\n" +"Donde vivían hacía mucho,  y eso les ayudaba a poder cultivar frijoles, tomates, papas, yucas, guayabas y muchas frutas deliciosas, pero lo que más les gusta era la Maiz, porque pensaban que era el alimentos de los Dioses." +
-                        "\n" +  "Por el frio que hacia, los muiscas vestían con  ropa larga, y gorros, pero no como la que tu y yo usamos, ellos utilizaban túnicas hechas en algodon, esas túnicas eran como una sábana blanca con decoraciones muuy lindas, que cubrian su cuerpo, y en momentos de celebraciones como festivales, se ponian  aretes,  coronas, pulseras, hechas de oro, y esmeraldas. y un instrumento  musical muy  utilizado es el SIKU un instrumentos de viento como la hecho de caña, que suena muy bonito. \n" +
-                        "\n" +"Ellos eran muy inteligentes, entonces se dieron cuenta que algunas veces ellos tenían mucha comida o animales que no iban a utilizar, entonces hablan con otra persona y le decían, yo te doy tres tomates y tu me das  2 manzanas, a esto se le llama TRUEQUE, esta era la manera en que ellos comercializaban. \n"),
+                        "Los muiscas,  eran grandes agricultores, cuidan la tierra y el agua como regalos que les habían dado los dioses. En la ubicación dónde vivían hacía mucho frío, y eso les ayudaba a poder cultivar frijoles, tomates, papas, yucas, guayabas y muchas frutas deliciosas, pero lo que más les gusta era la maíz, porque pensaban que era el alimentos de los Dioses. \n" +
+                        "Por el frio que hacia, los muiscas vestían con  ropa larga, y gorros, pero no como la que tu y yo usamos, ellos utilizaban túnicas hechas en algodon, esas túnicas eran como una sábana blanca con decoraciones muy lindas, que cubrían su cuerpo, y en momentos de celebraciones como festivales, se ponían  aretes,  coronas, pulseras hechas de oro, y esmeraldas, y un instrumento  musical muy  utilizado es el siku, un instrumentos de viento como la hecho de caña, que suena muy bonito. \n" +
+                         "Ellos eran muy inteligentes, entonces se dieron cuenta que algunas veces ellos tenían mucha comida o animales que no iban a utilizar, entonces hablan con otras personas y les ofrecían un intercambio, a esto se le llama trueque, esta era la manera en que ellos comercializaban, porque daban una parte de lo que les sobraba por algo que necesitaban, ejemplo, tu tienes 5 bombones pero quieres un paquete de galletas, entonces le ofreces a un amigo 2 bombones por ese paquete de galletas, eso es un trueque. \n"
+                        ),
                 1);
         this.insertPregunta(db,"¿Cual es el alimento sagrado de los muiscas?",1);
         this.insertRespuesta(db,"Papas",1,0);
