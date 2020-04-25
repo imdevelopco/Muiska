@@ -19,43 +19,58 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/questionOnetextView"
+        android:id="@+id/answerOnetextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
         android:layout_marginTop="80dp"
         android:text="TextView"
+        android:onClick="validateAnswer"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleQuestiontextView" />
 
     <TextView
-        android:id="@+id/questionTwotextView"
+        android:id="@+id/answerTwotextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="88dp"
         android:layout_marginTop="80dp"
         android:text="TextView"
-        app:layout_constraintStart_toEndOf="@+id/questionOnetextView"
+        android:onClick="validateAnswer"
+        app:layout_constraintStart_toEndOf="@+id/answerOnetextView"
         app:layout_constraintTop_toBottomOf="@+id/titleQuestiontextView" />
 
     <TextView
-        android:id="@+id/questionThreetextView"
+        android:id="@+id/answerThreetextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
         android:layout_marginTop="80dp"
         android:text="TextView"
+        android:onClick="validateAnswer"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/questionOnetextView" />
+        app:layout_constraintTop_toBottomOf="@+id/answerOnetextView" />
 
     <TextView
-        android:id="@+id/questionFourtextView"
+        android:id="@+id/answerFourtextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="96dp"
         android:layout_marginTop="80dp"
         android:text="TextView"
-        app:layout_constraintStart_toEndOf="@+id/questionThreetextView"
-        app:layout_constraintTop_toBottomOf="@+id/questionTwotextView" />
+        android:onClick="validateAnswer"
+        app:layout_constraintStart_toEndOf="@+id/answerThreetextView"
+        app:layout_constraintTop_toBottomOf="@+id/answerTwotextView" />
+
+    <Button
+        android:id="@+id/nextQuestionbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="104dp"
+        android:text="Button"
+        android:onClick="changeQuestion"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/answerThreetextView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
