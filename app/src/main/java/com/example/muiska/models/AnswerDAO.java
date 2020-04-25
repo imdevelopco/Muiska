@@ -15,16 +15,21 @@ public class AnswerDAO {
         db = databaseOpenHelper.getWritableDatabase();
     }
 
-    public ArrayList<String> getAnswers(int id_pregunta){
-        ArrayList<String> respuestas = new ArrayList<String>();
-        Cursor cursor = db.rawQuery("SELECT " + UtilitiesDatabase.Tabla_Respuesta.ENUNCIADO
+    public ArrayList<ArrayList<String>> getAnswers(int id_pregunta){
+
+        ArrayList<ArrayList<String>> respuestas = new ArrayList<>();
+        ArrayList<String> respuesta = new ArrayList<>();
+        Cursor cursor = db.rawQuery("SELECT " + UtilitiesDatabase.Tabla_Respuesta.ENUNCIADO + "," + UtilitiesDatabase.Tabla_Respuesta.CORRECTA
                 + " FROM " + UtilitiesDatabase.Tabla_Respuesta.TABLE_NAME +
                 " WHERE id_pregunta = ?",new String [] {String.valueOf(id_pregunta)} );
-        cursor.moveToFirst();
-        respuestas.add(cursor.getString(0));
-        while(cursor.moveToNext()){
-            // Siempre son 4 respuestas por pregunta
-            respuestas.add(cursor.getString(0));
+
+        if (cursor.moveToFirst()) {
+            do {
+                respuesta.add(cursor.getString(0));
+                respuesta.add(cursor.getString(1));
+                respuestas.add(respuesta);
+                respuesta = new ArrayList<>();
+            } while (cursor.moveToNext());
         }
         db.close();
         return respuestas;

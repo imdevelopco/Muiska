@@ -31,8 +31,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void popup(String textToView){
-        Context context = getApplicationContext();
+    public static void popup(String textToView,Context context){
         CharSequence text = textToView;
         int duration = Toast.LENGTH_SHORT;
         Toast toast = Toast.makeText(context, text, duration);
@@ -49,10 +48,10 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if(inputName.getText().length()<1){
-            this.popup("El nick no debe estar vacio");
+            this.popup("El nick no debe estar vacio",this.getApplicationContext());
         }
         if((edadUser > 99) || (edadUser < 1)){
-            this.popup("Edad no valida");
+            this.popup("Edad no valida",this.getApplicationContext());
 
         }else{
             this.cambiarActivity(view);
