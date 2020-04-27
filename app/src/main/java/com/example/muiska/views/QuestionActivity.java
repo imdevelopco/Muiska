@@ -71,18 +71,27 @@ public class QuestionActivity extends AppCompatActivity {
                 case 0:
                     answerCtrlOne = new AnswerController(respuestas.get(i).get(0),Integer.parseInt(respuestas.get(i).get(1)));
                     answerOneTextView.setText(answerCtrlOne.getEnunciado());
+                    answerOneTextView.setTextColor(Color.BLACK);
                     break;
                 case 1:
                     answerCtrlTwo = new AnswerController(respuestas.get(i).get(0),Integer.parseInt(respuestas.get(i).get(1)));
                     answerTwoTextView.setText(answerCtrlTwo.getEnunciado());
+                    answerTwoTextView.setTextColor(Color.BLACK);
+                    // en caso de que sea pregunta tipo verdadero o falso
+                    if(respuestas.size() == 2){
+                        answerThreeTextView.setText("");
+                        answerFourTextView.setText("");
+                    }
                     break;
                 case 2:
                     answerCtrlThree = new AnswerController(respuestas.get(i).get(0),Integer.parseInt(respuestas.get(i).get(1)));
                     answerThreeTextView.setText(answerCtrlThree.getEnunciado());
+                    answerThreeTextView.setTextColor(Color.BLACK);
                     break;
                 case 3:
                     answerCtrlFour = new AnswerController(respuestas.get(i).get(0),Integer.parseInt(respuestas.get(i).get(1)));
                     answerFourTextView.setText(answerCtrlFour.getEnunciado());
+                    answerFourTextView.setTextColor(Color.BLACK);
                     break;
             }
         }
@@ -99,16 +108,22 @@ public class QuestionActivity extends AppCompatActivity {
         }else{
             answerTwoTextView.setTextColor(Color.RED);
         }
-        if(answerCtrlThree.getRespuesta() == 1){
-            answerThreeTextView.setTextColor(Color.GREEN);
-        }else {
-            answerThreeTextView.setTextColor(Color.RED);
+        if(answerThreeTextView.getText().length() > 0){
+            if(answerCtrlThree.getRespuesta() == 1){
+                answerThreeTextView.setTextColor(Color.GREEN);
+            }else {
+                answerThreeTextView.setTextColor(Color.RED);
+            }
         }
-        if(answerCtrlFour.getRespuesta() == 1){
-            answerFourTextView.setTextColor(Color.GREEN);
-        }else{
-            answerFourTextView.setTextColor(Color.RED);
+
+        if(answerFourTextView.getText().length() > 0){
+            if(answerCtrlFour.getRespuesta() == 1 ){
+                answerFourTextView.setTextColor(Color.GREEN);
+            }else{
+                answerFourTextView.setTextColor(Color.RED);
+            }
         }
+
     }
     /* Metodo para generar preguntas de orden aleatorio */
     public int[] azar(int inicio,int fin,int tam) {
