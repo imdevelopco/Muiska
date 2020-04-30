@@ -21,19 +21,39 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
         db.execSQL(UtilitiesDatabase.Tabla_Respuesta.CREATE_TABLE_RESPUESTA);
         db.execSQL(UtilitiesDatabase.Tabla_Pregunta.CREATE_TABLE_PREGUNTA);
         db.execSQL(UtilitiesDatabase.Tabla_Respuesta_Pregunta.CREATE_TABLE_RESPUESTA_PREGUNTA);
-        /* insert*/
+        /* inserts*/
+        /*Inicio Estacion # 1*/
         this.insertEstacion(db,"Costumbres y modos de vida");
         this.insertNarracion(db,(
-                "Los muiscas, eran grandes agricultores, cuidan la tierra y el agua como regalos que les habían dado los dioses."
-                +"\n" +"Donde vivían hacía mucho,  y eso les ayudaba a poder cultivar frijoles, tomates, papas, yucas, guayabas y muchas frutas deliciosas, pero lo que más les gusta era la Maiz, porque pensaban que era el alimentos de los Dioses." +
-                        "\n" +  "Por el frio que hacia, los muiscas vestían con  ropa larga, y gorros, pero no como la que tu y yo usamos, ellos utilizaban túnicas hechas en algodon, esas túnicas eran como una sábana blanca con decoraciones muuy lindas, que cubrian su cuerpo, y en momentos de celebraciones como festivales, se ponian  aretes,  coronas, pulseras, hechas de oro, y esmeraldas. y un instrumento  musical muy  utilizado es el SIKU un instrumentos de viento como la hecho de caña, que suena muy bonito. \n" +
-                        "\n" +"Ellos eran muy inteligentes, entonces se dieron cuenta que algunas veces ellos tenían mucha comida o animales que no iban a utilizar, entonces hablan con otra persona y le decían, yo te doy tres tomates y tu me das  2 manzanas, a esto se le llama TRUEQUE, esta era la manera en que ellos comercializaban. \n"),
+                        "Los muiscas,  eran grandes agricultores, cuidan la tierra y el agua como regalos que les habían dado los dioses. En la ubicación dónde vivían hacía mucho frío, y eso les ayudaba a poder cultivar frijoles, tomates, papas, yucas, guayabas y muchas frutas deliciosas, pero lo que más les gusta era la maíz, porque pensaban que era el alimentos de los Dioses. \n" +
+                        "Por el frio que hacía, los muiscas vestían con  ropa larga, y gorros, pero no como la que tu y yo usamos, ellos utilizaban túnicas hechas en algodon, esas túnicas eran como una sábana blanca con decoraciones muy lindas, que cubrían su cuerpo, y en momentos de celebraciones como festivales, se ponían  aretes,  coronas, pulseras hechas de oro, y esmeraldas, y un instrumento  musical muy  utilizado es el siku, un instrumentos de viento como la hecho de caña, que suena muy bonito. \n" +
+                         "Ellos eran muy inteligentes, entonces se dieron cuenta que algunas veces ellos tenían mucha comida o animales que no iban a utilizar, entonces hablan con otras personas y les ofrecían un intercambio, a esto se le llama trueque, esta era la manera en que ellos comercializaban, porque daban una parte de lo que les sobraba por algo que necesitaban, ejemplo, tu tienes 5 bombones pero quieres un paquete de galletas, entonces le ofreces a un amigo 2 bombones por ese paquete de galletas, eso es un trueque. \n"
+                        ),
                 1);
         this.insertPregunta(db,"¿Cual es el alimento sagrado de los muiscas?",1);
         this.insertRespuesta(db,"Papas",1,0);
         this.insertRespuesta(db,"Yuca",1,0);
         this.insertRespuesta(db,"Maiz",1,1);
         this.insertRespuesta(db,"Bananos",1,0);
+        this.insertPregunta(db,"¿Cómo se llama la forma en que los Muiscas intercambian comida o animales  con otras personas?",1);
+        this.insertRespuesta(db,"Trueque",2,1);
+        this.insertRespuesta(db,"Compra",2,0);
+        this.insertRespuesta(db,"Venta",2,0);
+        this.insertRespuesta(db,"Préstamo",2,0);
+        this.insertPregunta(db,"Señale verdadero o falso: ¿Los muiscas se vestían con ropa larga, y gorros, normalmente de algodón para cubrirse del frío?",1);
+        this.insertRespuesta(db,"Verdadero",3,1);
+        this.insertRespuesta(db,"Falso",3,0);
+        this.insertPregunta(db,"¿Cómo se llamaba el instrumento musica que usaban los muiscas en las fiestas?",1);
+        this.insertRespuesta(db,"Siku",4,1);
+        this.insertRespuesta(db,"Flauta",4,0);
+        this.insertRespuesta(db,"Arpa",4,0);
+        this.insertRespuesta(db,"Oboe",4,0);
+        this.insertPregunta(db,"¿Qué cultivaban los muiscas  para alimentarse?",1);
+        this.insertRespuesta(db,"Frijol, papas, yucas, frutas",5,1);
+        this.insertRespuesta(db,"Zanahorias, lechuga,  frutas",5,0);
+        this.insertRespuesta(db,"Peces, ganado y frijoles",5,0);
+        this.insertRespuesta(db,"Chontaduro, Borojo y Mandarinas",5,0);
+        /*Fin Estacion # 1*/
 
     }
 

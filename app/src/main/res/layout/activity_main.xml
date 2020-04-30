@@ -14,6 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="124dp"
         android:layout_marginTop="40dp"
+        android:contentDescription="ingresa tu edad en el campo que se encuentra un poco mas abajo"
         android:text="@string/login_edad"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
@@ -26,6 +27,7 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="76dp"
         android:layout_marginBottom="20dp"
+        android:contentDescription="Bienvenido a Muisca, Por favor registrate en el siguiente formulario"
         app:layout_constraintBottom_toTopOf="@+id/textViewNickname"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.392"
@@ -40,6 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
         android:layout_marginTop="5dp"
+        android:contentDescription="ingresa tu nickname en el campo que se encuentra un poco mas abajo"
         android:text="@string/login_nickname"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.088"
@@ -53,14 +56,14 @@
         android:layout_marginStart="132dp"
         android:layout_marginTop="112dp"
         android:background="@color/colorPrimary"
+        android:contentDescription="Confirma si deseas continuar"
         android:onClick="validation"
         android:text="@string/login_btn_Confirm"
         android:textColor="@color/fondoAPP"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewEdad"
-        app:layout_constraintVertical_bias="0.052"
-        />
+        app:layout_constraintVertical_bias="0.052" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout2"
@@ -80,6 +83,7 @@
             android:id="@+id/inputEdad"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:contentDescription="Ingresa tu edad"
             android:hint="Edad"
             android:inputType="number" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -100,8 +104,9 @@
             android:id="@+id/inputTextNick"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:singleLine="true"
-            android:hint="nick" />
+            android:contentDescription="Ingresa tu Nickname"
+            android:hint="Nick"
+            android:singleLine="true" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.constraintlayout.widget.Guideline

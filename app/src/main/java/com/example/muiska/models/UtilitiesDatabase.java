@@ -49,7 +49,7 @@ public class UtilitiesDatabase {
         static final  String ENUNCIADO = "enunciado";
         static final  String ID_NARRACION = "id_narracion";
         static final  String CREATE_TABLE_PREGUNTA =  CREATE_TABLE + TABLE_NAME + "("
-                                                    + ID + INTEGER + NOT_NULL + ","
+                                                    + ID + INTEGER + PRIMARY_KEY + ","
                                                     + ENUNCIADO + TEXT + NOT_NULL + ","
                                                     + ID_NARRACION + INTEGER + NOT_NULL + "," +
                                                     FOREIGN_KEY + ID_NARRACION + REFERENCES +
