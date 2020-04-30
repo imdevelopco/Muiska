@@ -56,13 +56,18 @@ public class QuestionActivity extends AppCompatActivity {
     public void setContentQuestion(){
         if(preguntaActual < preguntas.length){
             /* Question*/
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             QuestionDAO questionDAO= new QuestionDAO(getApplicationContext());
             AnswerDAO answerDAO= new AnswerDAO (getApplicationContext());
             CharSequence tituloPregunta = questionDAO.getQuestion(1,preguntas[preguntaActual]).get(0);
             initAnswers(answerDAO);
             /* set text content of TextViews */
             tituloPreguntaTextView.setText(tituloPregunta);
-            //tituloPreguntaTextView.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_FOCUSED);
+            tituloPreguntaTextView.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_FOCUSED);
             preguntaActual++;
         }else{
             /*Accion a ejecutar cuando termine las preguntas*/

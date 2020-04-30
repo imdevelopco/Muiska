@@ -12,7 +12,7 @@
         android:layout_height="80dp"
         android:layout_marginStart="64dp"
         android:layout_marginTop="164dp"
-        android:contentDescription="Estacion # 1: Costumbres y modos de vida"
+        android:contentDescription="Estacion # 1: Costumbres y modos de vida, da click para jugar"
         android:onClick="cambiarActivity"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -24,6 +24,7 @@
         android:layout_height="80dp"
         android:layout_marginStart="64dp"
         android:layout_marginTop="96dp"
+        android:contentDescription="Estación # 3, da click para jugar esta estación"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageStationOne"
         app:srcCompat="@drawable/redstation" />
@@ -34,6 +35,7 @@
         android:layout_height="80dp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="164dp"
+        android:contentDescription="Estación # 2, da click para jugar esta estación"
         app:layout_constraintStart_toEndOf="@+id/imageStationOne"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/greenstation" />
@@ -44,6 +46,7 @@
         android:layout_height="80dp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="96dp"
+        android:contentDescription="Estación # 4, da click para jugar esta estación"
         app:layout_constraintStart_toEndOf="@+id/imageView9"
         app:layout_constraintTop_toBottomOf="@+id/imageView8"
         app:srcCompat="@drawable/yellowstation" />
