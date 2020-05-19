@@ -18,8 +18,13 @@ public class DashboardActivity extends AppCompatActivity {
         setTitleStationOne();
     }
 
-    public  void cambiarActivity(View view){
+    public  void cambiarActivityCostumbres(View view){
         Intent intent = new Intent(this, NarrationActivity.class);
+        startActivity(intent);
+    }
+
+    public  void cambiarActivityMap(View view){
+        Intent intent = new Intent(this, MapsActivity.class);
         startActivity(intent);
     }
 
