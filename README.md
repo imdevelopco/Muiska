@@ -1,6 +1,6 @@
 # Muiska 🚀
 Aplicación móvil, acerca de la cultura Muisca en Colombia, contiene videos, preguntas, mapas y rankings, para que los niños y jovenes que hagan parte de este juego, se motiven y tengan muchísimas más ganas de aprender en su recorrido.
-![](app/src/main/res/drawable/logo.png)
+![](app/src/main/res/drawable/logo100x100.png)
 
 ### Pre-requisitos 📋
 
