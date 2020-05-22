@@ -57,6 +57,7 @@ public class QuestionActivity extends AppCompatActivity {
         if(preguntaActual < preguntas.length){
             /* Question*/
             try {
+
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();

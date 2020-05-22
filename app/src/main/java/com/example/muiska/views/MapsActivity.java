@@ -2,6 +2,9 @@ package com.example.muiska.views;
 
 import androidx.fragment.app.FragmentActivity;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 
 import com.example.muiska.R;
@@ -9,13 +12,18 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptor;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.GroundOverlayOptions;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.VisibleRegion;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
-    private GoogleMap mMap;
-
+    private GoogleMap mapa;
+    private  LatLng locationMuisca,topLeft,topRight,bottomLeft,bottomRight, centroMapa;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,23 +34,46 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mapFragment.getMapAsync(this);
     }
 
-
-    /**
-     * Manipulates the map once available.
-     * This callback is triggered when the map is ready to be used.
-     * This is where we can add markers or lines, add listeners or move the camera. In this case,
-     * we just add a marker near Sydney, Australia.
-     * If Google Play services is not installed on the device, the user will be prompted to install
-     * it inside the SupportMapFragment. This method will only be triggered once the user has
-     * installed Google Play services and returned to the app.
-     */
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        mMap = googleMap;
+        int height = 150;
+        int width = 150;
+        BitmapDrawable bitmapdraw=(BitmapDrawable)getResources().getDrawable(R.drawable.muiscamarker);
+        Bitmap b=bitmapdraw.getBitmap();
+        Bitmap smallMarker = Bitmap.createScaledBitmap(b, width, height, false);
 
+        mapa = googleMap;
+        locationMuisca = new LatLng(5.4185, -73.421);
+        centroMapa = new LatLng(4.390652, -72.531905);
+        /*Casanare
 
-        LatLng locationMuisca = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(locationMuisca).title("Territorio Muisca"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(locationMuisca));
+*/
+        mapa.addMarker(new MarkerOptions().position(locationMuisca).title("Territorio Muisca").snippet("Altiplano cundiboyacense")
+            .icon(BitmapDescriptorFactory.fromBitmap(smallMarker)));
+        mapa.moveCamera(CameraUpdateFactory.newLatLng(centroMapa));
+
+        mapa.animateCamera(CameraUpdateFactory.zoomTo((float) 5.49),1000,null);
+        mapa.getUiSettings().setMapToolbarEnabled(false);
+        mapa.setOnCameraIdleListener(new GoogleMap.OnCameraIdleListener() {
+                                         @Override
+                                         public void onCameraIdle() {
+                                             locationMuisca = new LatLng(mapa.getCameraPosition().target.latitude,mapa.getCameraPosition().target.longitude);
+                                             topLeft = new LatLng(12.894122243083283,-79.66413816064596);
+                                             topRight = new LatLng(12.894122243083283,-66.29967233687639);
+                                             bottomLeft = new LatLng(-4.835118627788749,-79.66413816064596);
+                                             bottomRight = new LatLng(-4.835118627788749,-66.29967233687639);
+                                             LatLngBounds limits = new LatLngBounds.Builder().include(centroMapa).include(topLeft).include(bottomLeft)
+                                                     .include(topRight).include(bottomRight).build();
+                                             Bitmap imagenFondo = BitmapFactory.decodeResource(getResources(), R.drawable.map);
+                                             BitmapDescriptor imgFondoMap = BitmapDescriptorFactory.fromBitmap(imagenFondo);
+                                             GroundOverlayOptions groundOverlayOptions = new GroundOverlayOptions();
+                                             groundOverlayOptions.image(imgFondoMap);
+                                             groundOverlayOptions.positionFromBounds(limits);
+                                             groundOverlayOptions.transparency(0.1F);
+                                             mapa.addGroundOverlay(groundOverlayOptions);
+                                         }
+                                     }
+        );
     }
+
 }
