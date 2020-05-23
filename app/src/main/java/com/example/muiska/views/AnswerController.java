@@ -5,9 +5,11 @@ public class AnswerController {
     private CharSequence enunciado;
     private int respuesta;
 
+
     public AnswerController(CharSequence enunciado,int respuesta){
         this.enunciado = enunciado;
         this.respuesta = respuesta;
+
     }
     public CharSequence getEnunciado(){
         return  this.enunciado;

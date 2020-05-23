@@ -33,7 +33,7 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
         this.insertPregunta(db,"¿Cual es el alimento sagrado de los muiscas?",1);
         this.insertRespuesta(db,"Papas",1,0);
         this.insertRespuesta(db,"Yuca",1,0);
-        this.insertRespuesta(db,"Maiz",1,1);
+        this.insertRespuesta(db,"Maíz",1,1);
         this.insertRespuesta(db,"Bananos",1,0);
         this.insertPregunta(db,"¿Cómo se llama la forma en que los Muiscas intercambian comida o animales  con otras personas?",1);
         this.insertRespuesta(db,"Trueque",2,1);
