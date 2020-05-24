@@ -9,8 +9,10 @@ import android.widget.TextView;
 import com.example.muiska.R;
 import com.example.muiska.models.StationDAO;
 
-public class DashboardActivity extends AppCompatActivity {
+import static android.content.Intent.EXTRA_TEXT;
 
+public class DashboardActivity extends AppCompatActivity {
+    private CharSequence nombreEstacionOne;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,6 +22,7 @@ public class DashboardActivity extends AppCompatActivity {
 
     public  void cambiarActivityCostumbres(View view){
         Intent intent = new Intent(this, NarrationActivity.class);
+        intent.putExtra(EXTRA_TEXT,this.nombreEstacionOne);
         startActivity(intent);
     }
 
@@ -31,8 +34,8 @@ public class DashboardActivity extends AppCompatActivity {
     public void setTitleStationOne(){
         TextView StationOneTv =  (TextView) findViewById(R.id.stationOneTextView);
         StationDAO stationDAO = new StationDAO(getApplicationContext());
-        CharSequence nombreEstacion = stationDAO.getStation(1).get(0);
-        StationOneTv.setText(nombreEstacion);
+        nombreEstacionOne = stationDAO.getStation(1).get(0);
+        StationOneTv.setText(nombreEstacionOne);
     }
 
 }
