@@ -37,4 +37,8 @@ public class NarrationActivity extends AppCompatActivity {
         intent.putExtra(EXTRA_TEXT,this.tituloStation);
         startActivity(intent);
     }
+    @Override
+    public void onBackPressed(){
+        MainActivity.popup("Lo sentimos, no puedes volver.",getApplicationContext());
+    }
 }

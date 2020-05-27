@@ -2,6 +2,7 @@ package com.example.muiska.views;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
@@ -22,5 +23,13 @@ public class StationResultActivity extends AppCompatActivity {
         TextView resultStation = (TextView) findViewById(R.id.calificacionTextView);
         stationName.setText(tituloEstacion);
         resultStation.setText(resultado);
+    }
+
+
+
+    @Override
+    public void onBackPressed(){
+        Intent intent = new Intent(this, DashboardActivity.class);
+        startActivity(intent);
     }
 }

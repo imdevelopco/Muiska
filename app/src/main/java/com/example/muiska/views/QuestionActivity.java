@@ -247,4 +247,9 @@ public class QuestionActivity extends AppCompatActivity {
         intent.putExtras(extras);
         startActivity(intent);
     }
+
+    @Override
+    public void onBackPressed(){
+        MainActivity.popup("Lo sentimos, no puedes volver.",getApplicationContext());
+    }
 }

@@ -7,8 +7,9 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
-public class DatabaseOpenHelper extends SQLiteOpenHelper {
+import java.security.PublicKey;
 
+public class DatabaseOpenHelper extends SQLiteOpenHelper {
     public DatabaseOpenHelper(@Nullable Context context) {
         super(context, UtilitiesDatabase.DATABASE_NAME, null, UtilitiesDatabase.VERSION);
     }
@@ -66,10 +67,10 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
         valores.put(UtilitiesDatabase.Tabla_Estacion.NOMBRE_ESTACION,nombre_estacion);
         db.insert(UtilitiesDatabase.Tabla_Estacion.TABLE_NAME,null,valores);
     }
-    public void insertUsuario(SQLiteDatabase db,String nombre_usuario, String nickname ){
+    public void insertUsuario(SQLiteDatabase db, String nickname, String edad ){
         ContentValues valores = new ContentValues();
-        valores.put(UtilitiesDatabase.Tabla_Usuario.NOMBRE_USUARIO,nombre_usuario);
         valores.put(UtilitiesDatabase.Tabla_Usuario.NICK_NAME,nickname);
+        valores.put(UtilitiesDatabase.Tabla_Usuario.EDAD,edad);
         db.insert(UtilitiesDatabase.Tabla_Usuario.TABLE_NAME,null,valores);
     }
     public void insertNarracion(SQLiteDatabase db,String enunciado, int id_estacion){
@@ -93,14 +94,10 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
     }
     public void insertRespuestaPreguntas(SQLiteDatabase db,int id_pregunta,int id_respuesta,int id_usuario, int id_estacion,int respuesta_valida ){
         ContentValues valores = new ContentValues();
-        valores.put(UtilitiesDatabase.Tabla_Respuesta_Pregunta.ID_PREGUNTA,id_pregunta);
-        valores.put(UtilitiesDatabase.Tabla_Respuesta_Pregunta.ID_RESPUESTA,id_respuesta);
-        valores.put(UtilitiesDatabase.Tabla_Respuesta_Pregunta.ID_USUARIO,id_usuario);
         valores.put(UtilitiesDatabase.Tabla_Respuesta_Pregunta.ID_ESTACION,id_estacion);
-        valores.put(UtilitiesDatabase.Tabla_Respuesta_Pregunta.RESPUESTA_VALIDA,respuesta_valida);
+        valores.put(UtilitiesDatabase.Tabla_Respuesta_Pregunta.RESPUESTAS_VALIDAS,respuesta_valida);
         db.insert(UtilitiesDatabase.Tabla_Respuesta_Pregunta.TABLE_NAME,null,valores);
     }
-
     /*
      * Fin de Estructura de Inserts
      */
