@@ -36,13 +36,14 @@ public class QuestionActivity extends AppCompatActivity {
     private int[] preguntas = azar(1,5,5);
     private SoundPool aciertoSound, errorSound;
     private ImageView imageAnswerOne,imageAnswerTwo, imageAnswerThree,imageAnswerFour;
-    private String tituloEstacion;
+    private String tituloEstacion,idEstacion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Bundle extra = getIntent().getExtras();
-        tituloEstacion = extra.getString(EXTRA_TEXT);
+        tituloEstacion = extra.getString("EXTRA_TITLE_STATION");
+        idEstacion = extra.getString("EXTRA_ID_STATION");
         setContentView(R.layout.activity_question);
         tituloPreguntaTextView  = (TextView) findViewById(R.id.titleQuestiontextView);
         answerOneTextView       = (TextView) findViewById(R.id.answerOnetextView);
@@ -244,6 +245,7 @@ public class QuestionActivity extends AppCompatActivity {
         Bundle extras = new Bundle();
         extras.putString("EXTRA_RESULT_STATION",String.valueOf(preguntasCorrectas) + "/"+ String.valueOf(preguntas.length));
         extras.putString("EXTRA_TITLE_STATION",this.tituloEstacion);
+        extras.putString("EXTRA_ID_STATION",this.idEstacion);
         intent.putExtras(extras);
         startActivity(intent);
     }

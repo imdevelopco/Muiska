@@ -13,7 +13,7 @@
         android:layout_marginStart="64dp"
         android:layout_marginTop="164dp"
         android:contentDescription="Estacion # 1: Costumbres y modos de vida, da click para jugar"
-        android:onClick="cambiarActivityCostumbres"
+        android:onClick="cambiarActivity"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/bluestation" />
@@ -69,7 +69,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
         android:layout_marginTop="16dp"
-        android:text="0/10"
+        android:text="0/5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageStationOne" />
 
