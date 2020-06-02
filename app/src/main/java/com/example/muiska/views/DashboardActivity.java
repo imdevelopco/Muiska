@@ -18,15 +18,12 @@ public class DashboardActivity extends AppCompatActivity {
     private CharSequence nombreEstacionOne;
     private String stationToPlay,idStationToPlay;
     private boolean created;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
         setTitleStationOne();
     }
-
     @Override
     protected void onResume(){
         super.onResume();
@@ -42,7 +39,6 @@ public class DashboardActivity extends AppCompatActivity {
         UserDAO userDAO = new UserDAO(getApplicationContext());
         MainActivity.popup(String.valueOf(userDAO.getUsers()),getApplicationContext());
     }
-
     public static void setStationOnePlayed(boolean value){
         stationOnePlayed = value;
     }
@@ -53,7 +49,6 @@ public class DashboardActivity extends AppCompatActivity {
             scoreStationOne.setText(data);
         }
     }
-
     public  void cambiarActivity(View view){
         ImageView stationOne = findViewById(R.id.imageStationOne);
         Intent intent = new Intent(this, NarrationActivity.class);
@@ -71,19 +66,21 @@ public class DashboardActivity extends AppCompatActivity {
             MainActivity.popup("Ya jugaste esta estación",getApplicationContext());
         }
     }
+    public void goToRanking(View view){
+        Intent intent = new Intent(this, RankingActivity.class);
+        startActivity(intent);
 
+    }
     public  void cambiarActivityMap(View view){
         Intent intent = new Intent(this, MapsActivity.class);
         startActivity(intent);
     }
-
     public void setTitleStationOne(){
         TextView StationOneTv =  (TextView) findViewById(R.id.stationOneTextView);
         StationDAO stationDAO = new StationDAO(getApplicationContext());
         nombreEstacionOne = stationDAO.getStation(1).get(0);
         StationOneTv.setText(nombreEstacionOne);
     }
-
     @Override
     public void onBackPressed(){
         MainActivity.popup("Lo sentimos, no puedes volver.",getApplicationContext());
