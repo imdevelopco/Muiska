@@ -19,37 +19,39 @@
         app:srcCompat="@drawable/bluestation" />
 
     <ImageView
-        android:id="@+id/imageView9"
+        android:id="@+id/imageStationThree"
         android:layout_width="100dp"
         android:layout_height="80dp"
         android:layout_marginStart="64dp"
         android:layout_marginTop="96dp"
         android:contentDescription="Estación # 3, da click para jugar esta estación"
+        android:onClick="cambiarActivity"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageStationOne"
         app:srcCompat="@drawable/redstation" />
 
     <ImageView
-        android:id="@+id/imageView8"
+        android:id="@+id/imageStationTwo"
         android:layout_width="100dp"
         android:layout_height="80dp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="174dp"
         android:contentDescription="Estación # 2, da click para jugar esta estación"
-        android:onClick="cambiarActivityMap"
+        android:onClick="cambiarActivity"
         app:layout_constraintStart_toEndOf="@+id/imageStationOne"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/greenstation" />
 
     <ImageView
-        android:id="@+id/imageView10"
+        android:id="@+id/imageStationFour"
         android:layout_width="100dp"
         android:layout_height="80dp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="96dp"
         android:contentDescription="Estación # 4, da click para jugar esta estación"
-        app:layout_constraintStart_toEndOf="@+id/imageView9"
-        app:layout_constraintTop_toBottomOf="@+id/imageView8"
+        android:onClick="cambiarActivity"
+        app:layout_constraintStart_toEndOf="@+id/imageStationThree"
+        app:layout_constraintTop_toBottomOf="@+id/imageStationTwo"
         app:srcCompat="@drawable/yellowstation" />
 
     <ImageView
@@ -120,7 +122,7 @@
         android:layout_marginTop="16dp"
         android:text="0/10"
         app:layout_constraintStart_toEndOf="@+id/scoreStationOne"
-        app:layout_constraintTop_toBottomOf="@+id/imageView8" />
+        app:layout_constraintTop_toBottomOf="@+id/imageStationTwo" />
 
     <TextView
         android:id="@+id/stationFourTextView"
@@ -143,7 +145,7 @@
         android:layout_marginTop="24dp"
         android:text="0/10"
         app:layout_constraintStart_toEndOf="@+id/scoreStationThree"
-        app:layout_constraintTop_toBottomOf="@+id/imageView10" />
+        app:layout_constraintTop_toBottomOf="@+id/imageStationFour" />
 
     <TextView
         android:id="@+id/scoreStationThree"
@@ -153,7 +155,7 @@
         android:layout_marginTop="24dp"
         android:text="0/10"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView9" />
+        app:layout_constraintTop_toBottomOf="@+id/imageStationThree" />
 
     <TextView
         android:id="@+id/titleProgress"

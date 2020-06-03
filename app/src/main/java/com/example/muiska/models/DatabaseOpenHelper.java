@@ -22,9 +22,9 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
         db.execSQL(UtilitiesDatabase.Tabla_Respuesta.CREATE_TABLE_RESPUESTA);
         db.execSQL(UtilitiesDatabase.Tabla_Pregunta.CREATE_TABLE_PREGUNTA);
         db.execSQL(UtilitiesDatabase.Tabla_Respuesta_Pregunta.CREATE_TABLE_RESPUESTA_PREGUNTA);
-
+        /* inserts*/
         /*Inicio Estacion # 1*/
-        this.insertEstacion(db,"Ubicación geográfica y estructura político-administrativa");
+        this.insertEstacion(db,"Ubicación geográfica y  estructura político-administrativa");
         this.insertNarracion(db,(
                         "Mensaje de prueba, porque la narracion es muy larga y pues ajam."
                 ),
@@ -128,7 +128,7 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
         /*Fin Estacion # 3*/
 
         /* inserts*/
-        /*Inicio Estacion # 4*/
+        /*Inicio Estacion # 3*/
         this.insertEstacion(db,"Lagunas");
         this.insertNarracion(db,(
                         "El agua es uno de los recursos más importantes para la vida, y los Muiscas sabían eso, ellos tienen 7 lagunas sagradas. En la mitología de los muiscas, las lagunas son muy importantes, porque ellos decían que de allí nacieron algunos de los dioses más. \n" +
@@ -137,66 +137,31 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
                 ),
                 4);
         this.insertPregunta(db,"¿Cuántas lagunas sagradas tenían los muiscas?",4);
-        this.insertRespuesta(db,"5",12,0);
-        this.insertRespuesta(db,"6",12,0);
-        this.insertRespuesta(db,"4",12,0);
-        this.insertRespuesta(db,"7",12,1);
+        this.insertRespuesta(db,"5",16,0);
+        this.insertRespuesta(db,"6",16,0);
+        this.insertRespuesta(db,"4",16,0);
+        this.insertRespuesta(db,"7",16,1);
         this.insertPregunta(db,"¿En dónde están ubicadas las lagunas?",4);
-        this.insertRespuesta(db,"Cundinamarca",13,1);
-        this.insertRespuesta(db,"Caqueta",13,0);
-        this.insertRespuesta(db,"Putumayo",13,0);
-        this.insertRespuesta(db,"Choco",13,0);
+        this.insertRespuesta(db,"Cundinamarca",17,1);
+        this.insertRespuesta(db,"Caqueta",17,0);
+        this.insertRespuesta(db,"Putumayo",17,0);
+        this.insertRespuesta(db,"Choco",17,0);
         this.insertPregunta(db,"¿Cuál es el nombre de la laguna donde nació la diosa Bachué?",4);
-        this.insertRespuesta(db,"Iguaque",14,1);
-        this.insertRespuesta(db,"Ubaque",14,0);
-        this.insertRespuesta(db,"Tota",14,0);
-        this.insertRespuesta(db,"Guatavita",14,0);
+        this.insertRespuesta(db,"Iguaque",18,1);
+        this.insertRespuesta(db,"Ubaque",18,0);
+        this.insertRespuesta(db,"Tota",18,0);
+        this.insertRespuesta(db,"Guatavita",18,0);
         this.insertPregunta(db,"¿En que laguna se dice que está el tesoro El dorado?",4);
-        this.insertRespuesta(db,"Guatavita",15,1);
-        this.insertRespuesta(db,"Guasca",15,0);
-        this.insertRespuesta(db,"Teusacá",15,0);
-        this.insertRespuesta(db,"Siecha",15,0);
+        this.insertRespuesta(db,"Guatavita",19,1);
+        this.insertRespuesta(db,"Guasca",19,0);
+        this.insertRespuesta(db,"Teusacá",19,0);
+        this.insertRespuesta(db,"Siecha",19,0);
         this.insertPregunta(db,"En las lagunas, además de ofrendas a los dioses ¿qué más se hacía?",4);
-        this.insertRespuesta(db,"Pescar",16,0);
-        this.insertRespuesta(db,"Nadar",16,0);
-        this.insertRespuesta(db,"Cocinar para toda la comunidad",16,0);
-        this.insertRespuesta(db,"Rituales y cantos",16,1);
-        /*Fin Estacion # 4*/
-
-
-
-        this.insertEstacion(db,"Costumbres y modos de vida");
-        this.insertNarracion(db,(
-                        "Los muiscas,  eran grandes agricultores, cuidan la tierra y el agua como regalos que les habían dado los dioses. En la ubicación dónde vivían hacía mucho frío, y eso les ayudaba a poder cultivar frijoles, tomates, papas, yucas, guayabas y muchas frutas deliciosas, pero lo que más les gusta era el maíz, porque pensaban que era el alimentos de los Dioses. \n" +
-                        "Por el frio que hacía, los muiscas vestían con  ropa larga, y gorros, pero no como la que tu y yo usamos, ellos utilizaban túnicas hechas en algodon, esas túnicas eran como una sábana blanca con decoraciones muy lindas, que cubrían su cuerpo, y en momentos de celebraciones como festivales, se ponían  aretes,  coronas, pulseras hechas de oro, y esmeraldas, y un instrumento  musical muy  utilizado es el siku, un instrumentos de viento hecho de caña, que suena muy bonito. \n" +
-                         "Ellos eran muy inteligentes, entonces se dieron cuenta que algunas veces ellos tenían mucha comida o animales que no iban a utilizar, entonces hablan con otras personas y les ofrecían un intercambio, a esto se le llama trueque, esta era la manera en que ellos comercializaban, porque daban una parte de lo que les sobraba por algo que necesitaban, ejemplo, tu tienes 5 bombones pero quieres un paquete de galletas, entonces le ofreces a un amigo 2 bombones por ese paquete de galletas, eso es un trueque. \n"
-                        ),
-                1);
-        this.insertPregunta(db,"¿Cual es el alimento sagrado de los muiscas?",1);
-        this.insertRespuesta(db,"Papas",1,0);
-        this.insertRespuesta(db,"Yuca",1,0);
-        this.insertRespuesta(db,"Maíz",1,1);
-        this.insertRespuesta(db,"Bananos",1,0);
-        this.insertPregunta(db,"¿Cómo se llama la forma en que los Muiscas intercambian comida o animales  con otras personas?",1);
-        this.insertRespuesta(db,"Trueque",2,1);
-        this.insertRespuesta(db,"Compra",2,0);
-        this.insertRespuesta(db,"Venta",2,0);
-        this.insertRespuesta(db,"Préstamo",2,0);
-        this.insertPregunta(db,"Señale verdadero o falso: ¿Los muiscas se vestían con ropa larga, y gorros, normalmente de algodón para cubrirse del frío?",1);
-        this.insertRespuesta(db,"Verdadero",3,1);
-        this.insertRespuesta(db,"Falso",3,0);
-        this.insertPregunta(db,"¿Cómo se llamaba el instrumento musica que usaban los muiscas en las fiestas?",1);
-        this.insertRespuesta(db,"Siku",4,1);
-        this.insertRespuesta(db,"Flauta",4,0);
-        this.insertRespuesta(db,"Arpa",4,0);
-        this.insertRespuesta(db,"Oboe",4,0);
-        this.insertPregunta(db,"¿Qué cultivaban los muiscas  para alimentarse?",1);
-        this.insertRespuesta(db,"Frijol, papas, yucas, frutas",5,1);
-        this.insertRespuesta(db,"Zanahorias, lechuga,  frutas",5,0);
-        this.insertRespuesta(db,"Peces, ganado y frijoles",5,0);
-        this.insertRespuesta(db,"Chontaduro, Borojo y Mandarinas",5,0);
-        /*Fin Estacion # 1*/
-
+        this.insertRespuesta(db,"Pescar",20,0);
+        this.insertRespuesta(db,"Nadar",20,0);
+        this.insertRespuesta(db,"Cocinar para toda la comunidad",20,0);
+        this.insertRespuesta(db,"Rituales y cantos",20,1);
+        /*Fin Estacion # 3*/
     }
 
     /*Funciona como hashtable {'clave': valor}.

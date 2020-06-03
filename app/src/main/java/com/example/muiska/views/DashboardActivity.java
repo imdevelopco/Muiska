@@ -14,14 +14,20 @@ import com.example.muiska.models.UserDAO;
 import static android.content.Intent.EXTRA_TEXT;
 
 public class DashboardActivity extends AppCompatActivity {
-    private static boolean stationOnePlayed = false;
+    private static boolean stationOnePlayed = false,stationTwoPlayed = false,stationThreePlayed = false,stationFourPlayed = false;
     private CharSequence nameStationOne,nameStationTwo,nameStationThree,nameStationFour;
     private String stationToPlay,idStationToPlay;
     private boolean created;
+    private ImageView stationOne,stationTwo,stationThree,stationFour;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
+        stationOne = findViewById(R.id.imageStationOne);
+        stationTwo = findViewById(R.id.imageStationTwo);
+        stationThree = findViewById(R.id.imageStationThree);
+        stationFour = findViewById(R.id.imageStationFour);
         setTitleStationOne();
         setTitleStationTwo();
         setTitleStationThree();
@@ -45,6 +51,15 @@ public class DashboardActivity extends AppCompatActivity {
     public static void setStationOnePlayed(boolean value){
         stationOnePlayed = value;
     }
+    public static void setStationTwoPlayed(boolean value){
+        stationTwoPlayed = value;
+    }
+    public static void setStationThreePlayed(boolean value){
+        stationThreePlayed = value;
+    }
+    public static void setStationFourPlayed(boolean value){
+        stationFourPlayed = value;
+    }
     public void setScoreStation(int idStation,String data){
         /* Método para calificar el juego por estación */
         if(idStation == 1){
@@ -53,21 +68,37 @@ public class DashboardActivity extends AppCompatActivity {
         }
     }
     public  void cambiarActivity(View view){
-        ImageView stationOne = findViewById(R.id.imageStationOne);
         Intent intent = new Intent(this, NarrationActivity.class);
         Bundle extras = new Bundle();
         if(!stationOnePlayed) {
             if (stationOne.isPressed()) {
                 this.idStationToPlay = "1";
             }
-
             extras.putString("EXTRA_TITLE_STATION", String.valueOf(this.nameStationOne));
-            extras.putString("EXTRA_ID_STATION", idStationToPlay);
-            intent.putExtras(extras);
-            startActivity(intent);
+        }
+        if(!stationTwoPlayed) {
+            if (stationTwo.isPressed()) {
+                this.idStationToPlay = "2";
+            }
+            extras.putString("EXTRA_TITLE_STATION", String.valueOf(this.nameStationTwo));
+        }
+        if(!stationThreePlayed) {
+            if (stationThree.isPressed()) {
+                this.idStationToPlay = "3";
+            }
+            extras.putString("EXTRA_TITLE_STATION", String.valueOf(this.nameStationThree));
+        }
+        if(!stationFourPlayed) {
+            if (stationFour.isPressed()) {
+                this.idStationToPlay = "4";
+            }
+            extras.putString("EXTRA_TITLE_STATION", String.valueOf(this.nameStationFour));
         }else{
             MainActivity.popup("Ya jugaste esta estación",getApplicationContext());
         }
+        extras.putString("EXTRA_ID_STATION", idStationToPlay);
+        intent.putExtras(extras);
+        startActivity(intent);
     }
     public void goToRanking(View view){
         Intent intent = new Intent(this, RankingActivity.class);

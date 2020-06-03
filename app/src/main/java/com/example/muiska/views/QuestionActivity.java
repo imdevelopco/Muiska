@@ -33,7 +33,10 @@ public class QuestionActivity extends AppCompatActivity {
     private TextView answerThreeTextView;
     private TextView answerFourTextView;
     private int preguntaActual, playAcierto, playError,preguntasCorrectas;
-    private int[] preguntas = azar(1,5,5);
+    private int[] questionStationOne = azar(1,5,5);
+    private int[] questionStationTwo = azar(6,10,5);;
+    private int[] questionStationThree = azar(11,15,5);;
+    private int[] questionStationFour = azar(16,20,5);
     private SoundPool aciertoSound, errorSound;
     private ImageView imageAnswerOne,imageAnswerTwo, imageAnswerThree,imageAnswerFour;
     private String tituloEstacion,idEstacion;
@@ -65,6 +68,8 @@ public class QuestionActivity extends AppCompatActivity {
         setContentQuestion();
     }
     public void setContentQuestion(){
+        /* Se toma el arreglo de pregutas*/
+        int[] preguntas = arrayQuestions(Integer.parseInt(idEstacion));
         if(preguntaActual < preguntas.length){
             /* Question*/
             try {
@@ -75,8 +80,8 @@ public class QuestionActivity extends AppCompatActivity {
             }
             QuestionDAO questionDAO= new QuestionDAO(getApplicationContext());
             AnswerDAO answerDAO= new AnswerDAO (getApplicationContext());
-            CharSequence tituloPregunta = questionDAO.getQuestion(1,preguntas[preguntaActual]).get(0);
-            initAnswers(answerDAO);
+            CharSequence tituloPregunta = questionDAO.getQuestion(Integer.parseInt(idEstacion),preguntas[preguntaActual]).get(0);
+            initAnswers(answerDAO, preguntas);
             /* set text content of TextViews */
             tituloPreguntaTextView.setText(tituloPregunta);
             tituloPreguntaTextView.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_FOCUSED);
@@ -86,9 +91,27 @@ public class QuestionActivity extends AppCompatActivity {
             cambiarActivity();
         }
     }
-    public void initAnswers(AnswerDAO answerDAO){
+
+    public int[] arrayQuestions(int idQuestion){
+        switch (idQuestion){
+            case 1:{
+                return questionStationOne;
+            }
+            case 2:{
+                return questionStationTwo;
+            }
+            case 3:{
+                return questionStationThree;
+            }
+            case 4:{
+                return questionStationFour;
+            }
+        }
+        return  questionStationOne;
+    }
+    public void initAnswers(AnswerDAO answerDAO,int[] questions){
         /* Answer */
-        respuestas = answerDAO.getAnswers(preguntas[preguntaActual]);
+        respuestas = answerDAO.getAnswers(questions[preguntaActual]);
         for (int i=0; i<respuestas.size();i++){
             switch (i){
                 case 0:
@@ -206,29 +229,37 @@ public class QuestionActivity extends AppCompatActivity {
     }
     public int changeImage(CharSequence imageName){
         if(imageName.equals("Papas")){
-            return R.drawable.p1_papa;
+            return R.drawable.s2p1_papa;
         }
         if(imageName.equals("Bananos")){
-            return R.drawable.p1_banano;
+            return R.drawable.s2p1_bananos;
         }
         if(imageName.equals("Maíz")){
-            return R.drawable.p1_mazorca;
+            return R.drawable.s2p1_maiz;
         }
         if(imageName.equals("Yuca")){
-            return R.drawable.p1_yuca;
+            return R.drawable.s2p1_yuca;
         }
         if(imageName.equals("Trueque")){
-            return R.drawable.p2_trueque;
+            return R.drawable.s2p2_trueque;
         }
         if(imageName.equals("Compra")){
-            return R.drawable.p2_compra;
+            return R.drawable.s2p2_compra;
         }
         if(imageName.equals("Venta")){
-            return R.drawable.p2_venta;
+            return R.drawable.s2p2_venta;
         }
         if(imageName.equals("Préstamo")){
-            return R.drawable.p2_prestamo;
+            return R.drawable.s2p2_prestamo;
         }
+        if(imageName.equals("Verdadero")){
+            return R.drawable.s2verdadero;
+        }
+        if(imageName.equals("Falso")){
+            return R.drawable.s2falso;
+        }
+
+
         return R.drawable.logo100x100;
     }
     /* Metodo de implementacion de Sonido */
@@ -243,7 +274,7 @@ public class QuestionActivity extends AppCompatActivity {
     public  void cambiarActivity(){
         Intent intent = new Intent(this, StationResultActivity.class);
         Bundle extras = new Bundle();
-        extras.putString("EXTRA_RESULT_STATION",String.valueOf(preguntasCorrectas) + "/"+ String.valueOf(preguntas.length));
+        extras.putString("EXTRA_RESULT_STATION",String.valueOf(preguntasCorrectas) + "/5");
         extras.putString("EXTRA_TITLE_STATION",this.tituloEstacion);
         extras.putString("EXTRA_ID_STATION",this.idEstacion);
         intent.putExtras(extras);

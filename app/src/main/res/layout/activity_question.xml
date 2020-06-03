@@ -79,8 +79,8 @@
         android:visibility="visible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/answerOnetextView"
-        app:srcCompat="@drawable/p1_banano"
-        tools:srcCompat="@drawable/p1_banano" />
+        app:srcCompat="@drawable/logo100x100"
+        tools:srcCompat="@drawable/logo100x100" />
 
     <ImageView
         android:id="@+id/imageAnswer3"
@@ -91,8 +91,8 @@
         android:visibility="visible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/answerThreetextView"
-        app:srcCompat="@drawable/p1_papa"
-        tools:srcCompat="@drawable/p1_papa" />
+        app:srcCompat="@drawable/logo100x100"
+        tools:srcCompat="@drawable/logo100x100" />
 
     <ImageView
         android:id="@+id/imageAnswer4"
@@ -103,8 +103,8 @@
         android:visibility="visible"
         app:layout_constraintStart_toEndOf="@+id/imageAnswer3"
         app:layout_constraintTop_toBottomOf="@+id/answerFourtextView"
-        app:srcCompat="@drawable/p1_yuca"
-        tools:srcCompat="@drawable/p1_yuca" />
+        app:srcCompat="@drawable/logo100x100"
+        tools:srcCompat="@drawable/logo100x100" />
 
     <ImageView
         android:id="@+id/imageAnswer2"
@@ -115,7 +115,7 @@
         android:visibility="visible"
         app:layout_constraintStart_toEndOf="@+id/imageAnswer1"
         app:layout_constraintTop_toBottomOf="@+id/answerTwotextView"
-        app:srcCompat="@drawable/p1_mazorca"
-        tools:srcCompat="@drawable/p1_mazorca" />
+        app:srcCompat="@drawable/logo100x100"
+        tools:srcCompat="@drawable/logo100x100" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

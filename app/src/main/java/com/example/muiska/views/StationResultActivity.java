@@ -31,7 +31,24 @@ public class StationResultActivity extends AppCompatActivity {
     }
 
     public void setScoreStation(View view){
-        DashboardActivity.setStationOnePlayed(true);
+        switch (Integer.parseInt(idEstacion)){
+            case 1:{
+                DashboardActivity.setStationOnePlayed(true);
+            }
+            break;
+            case 2:{
+                DashboardActivity.setStationTwoPlayed(true);
+            }
+            break;
+            case 3:{
+                DashboardActivity.setStationThreePlayed(true);
+            }
+            break;
+            case 4:{
+                DashboardActivity.setStationFourPlayed(true);
+            }
+            break;
+        }
         Intent intent = new Intent(this, DashboardActivity.class);
         Bundle extras = new Bundle();
         extras.putString("EXTRA_RESULT_STATION",resultado);
