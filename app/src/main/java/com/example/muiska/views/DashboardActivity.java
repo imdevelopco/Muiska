@@ -15,7 +15,7 @@ import static android.content.Intent.EXTRA_TEXT;
 
 public class DashboardActivity extends AppCompatActivity {
     private static boolean stationOnePlayed = false;
-    private CharSequence nombreEstacionOne;
+    private CharSequence nameStationOne,nameStationTwo,nameStationThree,nameStationFour;
     private String stationToPlay,idStationToPlay;
     private boolean created;
     @Override
@@ -23,6 +23,9 @@ public class DashboardActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
         setTitleStationOne();
+        setTitleStationTwo();
+        setTitleStationThree();
+        setTitleStationFour();
     }
     @Override
     protected void onResume(){
@@ -58,7 +61,7 @@ public class DashboardActivity extends AppCompatActivity {
                 this.idStationToPlay = "1";
             }
 
-            extras.putString("EXTRA_TITLE_STATION", String.valueOf(this.nombreEstacionOne));
+            extras.putString("EXTRA_TITLE_STATION", String.valueOf(this.nameStationOne));
             extras.putString("EXTRA_ID_STATION", idStationToPlay);
             intent.putExtras(extras);
             startActivity(intent);
@@ -78,9 +81,29 @@ public class DashboardActivity extends AppCompatActivity {
     public void setTitleStationOne(){
         TextView StationOneTv =  (TextView) findViewById(R.id.stationOneTextView);
         StationDAO stationDAO = new StationDAO(getApplicationContext());
-        nombreEstacionOne = stationDAO.getStation(1).get(0);
-        StationOneTv.setText(nombreEstacionOne);
+        nameStationOne = stationDAO.getStation(1).get(0);
+        StationOneTv.setText(nameStationOne);
     }
+    public void setTitleStationTwo(){
+        TextView StationTwoTv =  (TextView) findViewById(R.id.stationTwoTextView);
+        StationDAO stationDAO = new StationDAO(getApplicationContext());
+        nameStationTwo = stationDAO.getStation(2).get(0);
+        StationTwoTv.setText(nameStationTwo);
+    }
+    public void setTitleStationThree(){
+        TextView StationThreeTv =  (TextView) findViewById(R.id.stationThreeTextView);
+        StationDAO stationDAO = new StationDAO(getApplicationContext());
+        nameStationThree = stationDAO.getStation(3).get(0);
+        StationThreeTv.setText(nameStationThree);
+    }
+    public void setTitleStationFour(){
+        TextView StationFourTv =  (TextView) findViewById(R.id.stationFourTextView);
+        StationDAO stationDAO = new StationDAO(getApplicationContext());
+        nameStationFour = stationDAO.getStation(4).get(0);
+        StationFourTv.setText(nameStationFour);
+    }
+
+
     @Override
     public void onBackPressed(){
         MainActivity.popup("Lo sentimos, no puedes volver.",getApplicationContext());

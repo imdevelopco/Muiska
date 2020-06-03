@@ -2,6 +2,7 @@ package com.example.muiska.views;
 
 import androidx.fragment.app.FragmentActivity;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
@@ -17,6 +18,7 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.GroundOverlayOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 
@@ -45,11 +47,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mapa = googleMap;
         locationMuisca = new LatLng(5.4185, -73.421);
         centroMapa = new LatLng(4.390652, -72.531905);
-        /*Casanare
-
-*/
-        mapa.addMarker(new MarkerOptions().position(locationMuisca).title("Territorio Muisca").snippet("Altiplano cundiboyacense")
-            .icon(BitmapDescriptorFactory.fromBitmap(smallMarker)));
+        MarkerOptions location = new MarkerOptions().position(locationMuisca).title("Territorio Muisca").snippet("Altiplano cundiboyacense")
+                .icon(BitmapDescriptorFactory.fromBitmap(smallMarker));
+        mapa.addMarker(location);
+        mapa.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+            @Override
+            public boolean onMarkerClick(Marker marker) {
+                Intent intent = new Intent(MapsActivity.this,DashboardActivity.class);
+                startActivity(intent);
+                return false;
+            }
+        });
         mapa.moveCamera(CameraUpdateFactory.newLatLng(centroMapa));
 
         mapa.animateCamera(CameraUpdateFactory.zoomTo((float) 5.49),1000,null);
