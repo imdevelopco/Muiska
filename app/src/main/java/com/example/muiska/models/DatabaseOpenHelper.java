@@ -198,10 +198,11 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
         valores.put(UtilitiesDatabase.Tabla_Respuesta.CORRECTA,correcta);
         db.insert(UtilitiesDatabase.Tabla_Respuesta.TABLE_NAME,null,valores);
     }
-    public void insertRespuestaPreguntas(SQLiteDatabase db,int id_pregunta,int id_respuesta,int id_usuario, int id_estacion,int respuesta_valida ){
+    public void insertRespuestaPreguntas(SQLiteDatabase db,String nickname, int id_estacion,int id_respuestas_validas){
         ContentValues valores = new ContentValues();
         valores.put(UtilitiesDatabase.Tabla_Respuesta_Pregunta.ID_ESTACION,id_estacion);
-        valores.put(UtilitiesDatabase.Tabla_Respuesta_Pregunta.RESPUESTAS_VALIDAS,respuesta_valida);
+        valores.put(UtilitiesDatabase.Tabla_Respuesta_Pregunta.RESPUESTAS_VALIDAS,id_respuestas_validas);
+        valores.put(UtilitiesDatabase.Tabla_Respuesta_Pregunta.NICKNAME,nickname);
         db.insert(UtilitiesDatabase.Tabla_Respuesta_Pregunta.TABLE_NAME,null,valores);
     }
     /*

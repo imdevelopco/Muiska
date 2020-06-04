@@ -29,6 +29,9 @@ public class MainActivity extends AppCompatActivity {
 
     public  void cambiarActivity(View view){
         Intent intent = new Intent(this, MapsActivity.class);
+        Bundle extras = new Bundle();
+        extras.putString("EXTRA_CURRENT_USER",String.valueOf(inputName.getText()));
+        intent.putExtras(extras);
         startActivity(intent);
     }
 

@@ -16,7 +16,7 @@ import static android.content.Intent.EXTRA_TEXT;
 public class DashboardActivity extends AppCompatActivity {
     private static boolean stationOnePlayed = false,stationTwoPlayed = false,stationThreePlayed = false,stationFourPlayed = false;
     private CharSequence nameStationOne,nameStationTwo,nameStationThree,nameStationFour;
-    private String stationToPlay,idStationToPlay;
+    private String currentUser,idStationToPlay;
     private boolean created;
     private ImageView stationOne,stationTwo,stationThree,stationFour;
 
@@ -24,6 +24,8 @@ public class DashboardActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
+        Bundle extras = getIntent().getExtras();
+        currentUser = extras.getString("EXTRA_CURRENT_USER");
         stationOne = findViewById(R.id.imageStationOne);
         stationTwo = findViewById(R.id.imageStationTwo);
         stationThree = findViewById(R.id.imageStationThree);
@@ -32,6 +34,7 @@ public class DashboardActivity extends AppCompatActivity {
         setTitleStationTwo();
         setTitleStationThree();
         setTitleStationFour();
+
     }
     @Override
     protected void onResume(){
@@ -66,8 +69,21 @@ public class DashboardActivity extends AppCompatActivity {
             TextView scoreStationOne = findViewById(R.id.scoreStationOne);
             scoreStationOne.setText(data);
         }
+        if(idStation == 2){
+            TextView scoreStationTwo = findViewById(R.id.scoreStationTwo);
+            scoreStationTwo.setText(data);
+        }
+        if(idStation == 3){
+            TextView scoreStationThree = findViewById(R.id.scoreStationThree);
+            scoreStationThree.setText(data);
+        }
+        if(idStation == 4){
+            TextView scoreStationFour = findViewById(R.id.scoreStationFour);
+            scoreStationFour.setText(data);
+        }
+
     }
-    public  void cambiarActivity(View view){
+    public  void cambiarActivityOne(View view){
         Intent intent = new Intent(this, NarrationActivity.class);
         Bundle extras = new Bundle();
         if(!stationOnePlayed) {
@@ -75,30 +91,62 @@ public class DashboardActivity extends AppCompatActivity {
                 this.idStationToPlay = "1";
             }
             extras.putString("EXTRA_TITLE_STATION", String.valueOf(this.nameStationOne));
+            extras.putString("EXTRA_ID_STATION", idStationToPlay);
+            extras.putString("EXTRA_CURRENT_USER",this.currentUser);
+            intent.putExtras(extras);
+            startActivity(intent);
+        }else{
+            MainActivity.popup("Ya jugaste esta estación",getApplicationContext());
         }
+    }
+    public  void cambiarActivityTwo(View view){
+        Intent intent = new Intent(this, NarrationActivity.class);
+        Bundle extras = new Bundle();
         if(!stationTwoPlayed) {
             if (stationTwo.isPressed()) {
                 this.idStationToPlay = "2";
             }
             extras.putString("EXTRA_TITLE_STATION", String.valueOf(this.nameStationTwo));
+            extras.putString("EXTRA_ID_STATION", idStationToPlay);
+            extras.putString("EXTRA_CURRENT_USER",this.currentUser);
+            intent.putExtras(extras);
+            startActivity(intent);
+        }else{
+            MainActivity.popup("Ya jugaste esta estación",getApplicationContext());
         }
+    }
+
+    public  void cambiarActivityThree(View view){
+        Intent intent = new Intent(this, NarrationActivity.class);
+        Bundle extras = new Bundle();
         if(!stationThreePlayed) {
             if (stationThree.isPressed()) {
                 this.idStationToPlay = "3";
             }
             extras.putString("EXTRA_TITLE_STATION", String.valueOf(this.nameStationThree));
+            extras.putString("EXTRA_ID_STATION", idStationToPlay);
+            extras.putString("EXTRA_CURRENT_USER",this.currentUser);
+            intent.putExtras(extras);
+            startActivity(intent);
+        }else{
+            MainActivity.popup("Ya jugaste esta estación",getApplicationContext());
         }
+    }
+    public  void cambiarActivityFour(View view){
+        Intent intent = new Intent(this, NarrationActivity.class);
+        Bundle extras = new Bundle();
         if(!stationFourPlayed) {
             if (stationFour.isPressed()) {
                 this.idStationToPlay = "4";
             }
             extras.putString("EXTRA_TITLE_STATION", String.valueOf(this.nameStationFour));
+            extras.putString("EXTRA_ID_STATION", idStationToPlay);
+            extras.putString("EXTRA_CURRENT_USER",this.currentUser);
+            intent.putExtras(extras);
+            startActivity(intent);
         }else{
             MainActivity.popup("Ya jugaste esta estación",getApplicationContext());
         }
-        extras.putString("EXTRA_ID_STATION", idStationToPlay);
-        intent.putExtras(extras);
-        startActivity(intent);
     }
     public void goToRanking(View view){
         Intent intent = new Intent(this, RankingActivity.class);

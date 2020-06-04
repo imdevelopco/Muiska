@@ -26,6 +26,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private GoogleMap mapa;
     private  LatLng locationMuisca,topLeft,topRight,bottomLeft,bottomRight, centroMapa;
+    private String currentUser;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +35,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+        Bundle extras = getIntent().getExtras();
+        currentUser = extras.getString("EXTRA_CURRENT_USER");
     }
 
     @Override
@@ -54,6 +57,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             @Override
             public boolean onMarkerClick(Marker marker) {
                 Intent intent = new Intent(MapsActivity.this,DashboardActivity.class);
+                Bundle extras = new Bundle();
+                extras.putString("EXTRA_CURRENT_USER",currentUser);
+                intent.putExtras(extras);
                 startActivity(intent);
                 return false;
             }

@@ -13,7 +13,7 @@
         android:layout_marginStart="64dp"
         android:layout_marginTop="174dp"
         android:contentDescription="Estacion # 1: Costumbres y modos de vida, da click para jugar"
-        android:onClick="cambiarActivity"
+        android:onClick="cambiarActivityOne"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/bluestation" />
@@ -25,7 +25,7 @@
         android:layout_marginStart="64dp"
         android:layout_marginTop="96dp"
         android:contentDescription="Estación # 3, da click para jugar esta estación"
-        android:onClick="cambiarActivity"
+        android:onClick="cambiarActivityThree"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageStationOne"
         app:srcCompat="@drawable/redstation" />
@@ -37,7 +37,7 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="174dp"
         android:contentDescription="Estación # 2, da click para jugar esta estación"
-        android:onClick="cambiarActivity"
+        android:onClick="cambiarActivityTwo"
         app:layout_constraintStart_toEndOf="@+id/imageStationOne"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/greenstation" />
@@ -49,7 +49,7 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="96dp"
         android:contentDescription="Estación # 4, da click para jugar esta estación"
-        android:onClick="cambiarActivity"
+        android:onClick="cambiarActivityFour"
         app:layout_constraintStart_toEndOf="@+id/imageStationThree"
         app:layout_constraintTop_toBottomOf="@+id/imageStationTwo"
         app:srcCompat="@drawable/yellowstation" />
@@ -120,7 +120,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="120dp"
         android:layout_marginTop="16dp"
-        android:text="0/10"
+        android:text="0/5"
         app:layout_constraintStart_toEndOf="@+id/scoreStationOne"
         app:layout_constraintTop_toBottomOf="@+id/imageStationTwo" />
 
@@ -143,7 +143,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="120dp"
         android:layout_marginTop="24dp"
-        android:text="0/10"
+        android:text="0/5"
         app:layout_constraintStart_toEndOf="@+id/scoreStationThree"
         app:layout_constraintTop_toBottomOf="@+id/imageStationFour" />
 
@@ -153,7 +153,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
         android:layout_marginTop="24dp"
-        android:text="0/10"
+        android:text="0/5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageStationThree" />
 

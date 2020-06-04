@@ -39,7 +39,7 @@ public class QuestionActivity extends AppCompatActivity {
     private int[] questionStationFour = azar(16,20,5);
     private SoundPool aciertoSound, errorSound;
     private ImageView imageAnswerOne,imageAnswerTwo, imageAnswerThree,imageAnswerFour;
-    private String tituloEstacion,idEstacion;
+    private String tituloEstacion,idEstacion, currentUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +47,7 @@ public class QuestionActivity extends AppCompatActivity {
         Bundle extra = getIntent().getExtras();
         tituloEstacion = extra.getString("EXTRA_TITLE_STATION");
         idEstacion = extra.getString("EXTRA_ID_STATION");
+        currentUser = extra.getString("EXTRA_CURRENT_USER");
         setContentView(R.layout.activity_question);
         tituloPreguntaTextView  = (TextView) findViewById(R.id.titleQuestiontextView);
         answerOneTextView       = (TextView) findViewById(R.id.answerOnetextView);
@@ -228,17 +229,81 @@ public class QuestionActivity extends AppCompatActivity {
         return numeros;
     }
     public int changeImage(CharSequence imageName){
+
+        /*Inicio Estacion # 1*/
+        if(imageName.equals("1500 años")){
+            return R.drawable.s1p1_1500;
+        }
+        if(imageName.equals("200 años")){
+            return R.drawable.s1p1_200;
+        }
+        if(imageName.equals("3100 años")){
+            return R.drawable.s1p1_3100;
+        }
+        if(imageName.equals("30 años")){
+            return R.drawable.s1p1_30;
+        }
+        if(imageName.equals("Norte")){
+            return R.drawable.s1p2_norte;
+        }
+        if(imageName.equals("Sur")){
+            return R.drawable.s1p2_sur;
+        }
+        if(imageName.equals("Este")){
+            return R.drawable.s1p2_este;
+        }
+        if(imageName.equals("Oeste")){
+            return R.drawable.s1p2_oeste;
+        }
+        if(imageName.equals("Templado")){
+            return R.drawable.s1p3_templado;
+        }
+        if(imageName.equals("Caluroso")){
+            return R.drawable.s1p3_caluroso;
+        }
+        if(imageName.equals("Frío")){
+            return R.drawable.s1p3_frio;
+        }
+        if(imageName.equals("Tropical")){
+            return R.drawable.s1p3_tropical;
+        }
+        if(imageName.equals("El Cacique")){
+            return R.drawable.s1p4_cacique;
+        }
+        if(imageName.equals("El Zipa")){
+            return R.drawable.s1p4_zipa;
+        }
+        if(imageName.equals("El Sacerdote")){
+            return R.drawable.s1p4_sacerdote;
+        }
+        if(imageName.equals("Los Güechas")){
+            return R.drawable.s1p4_guecha;
+        }
+        if(imageName.equals("Los animales")){
+            return R.drawable.s1p5_animales;
+        }
+        if(imageName.equals("El sol")){
+            return R.drawable.s1p5_sol;
+        }
+        if(imageName.equals("El agua")){
+            return R.drawable.s1p5_agua;
+        }
+        if(imageName.equals("Todas las anteriores")){
+            return R.drawable.s1p5_todas;
+        }
+
+        /*Inicio Estacion # 2*/
         if(imageName.equals("Papas")){
             return R.drawable.s2p1_papa;
         }
-        if(imageName.equals("Bananos")){
-            return R.drawable.s2p1_bananos;
+        if(imageName.equals("Yuca")){
+            return R.drawable.s2p1_yuca;
         }
         if(imageName.equals("Maíz")){
             return R.drawable.s2p1_maiz;
         }
-        if(imageName.equals("Yuca")){
-            return R.drawable.s2p1_yuca;
+        if(imageName.equals("Bananos")){
+            return R.drawable.s2p1_bananos;
         }
         if(imageName.equals("Trueque")){
             return R.drawable.s2p2_trueque;
@@ -258,9 +323,154 @@ public class QuestionActivity extends AppCompatActivity {
         if(imageName.equals("Falso")){
             return R.drawable.s2falso;
         }
+        if(imageName.equals("Siku")){
+            return R.drawable.s2p3_siku;
+        }
+        if(imageName.equals("Flauta")){
+            return R.drawable.s2p3_flauta;
+        }
+        if(imageName.equals("Arpa")){
+            return R.drawable.s2p3_arpa;
+        }
+        if(imageName.equals("Oboe")){
+            return R.drawable.s2p3_oboe;
+        }
+        if(imageName.equals("Frijol, papas, yucas, frutas")){
+            return R.drawable.s2p4_1;
+        }
+        if(imageName.equals("Zanahorias, lechuga,  frutas")){
+            return R.drawable.s2p4_2;
+        }
+        if(imageName.equals("Peces, ganado y frijoles")){
+            return R.drawable.s2p4_3;
+        }
+        if(imageName.equals("Chontaduro, Borojo y Mandarinas")){
+            return R.drawable.s2p4_4;
+        }
 
+        /*Inicio Estacion # 3*/
+        if(imageName.equals("5")){
+            return R.drawable.s3p1_5;
+        }
+        if(imageName.equals("4")){
+            return R.drawable.s3p1_4;
+        }
+        if(imageName.equals("6")){
+            return R.drawable.s3p1_6;
+        }
+        if(imageName.equals("7")){
+            return R.drawable.s3p1_7;
+        }
+        if(imageName.equals("Bachue")){
+            return R.drawable.s3p2_bachue;
+        }
+        if(imageName.equals("Chie")){
+            return R.drawable.s3p2_chie;
+        }
+        if(imageName.equals("Sue")){
+            return R.drawable.s3p2_sue;
+        }
+        if(imageName.equals("Cuchavira")){
+            return R.drawable.s3p2_cuchavira;
+        }
+        if(imageName.equals("Chaquen y Zipa")){
+            return R.drawable.s3p3_chaquenzipa;
+        }
+        if(imageName.equals("Pachamama y Sie")){
+            return R.drawable.s3p3_pachamamasie;
+        }
+        if(imageName.equals("Sue y Chie")){
+            return R.drawable.s3p3_suechie;
+        }
+        if(imageName.equals("Cacique y Zipa")){
+            return R.drawable.s3p3_caciquezipa;
+        }
+        if(imageName.equals("Ofrendas hechas en arcilla")){
+            return R.drawable.s3p4_arcilla;
+        }
+        if(imageName.equals("Ofrendas con comida")){
+            return R.drawable.s3p4_comida;
+        }
+        if(imageName.equals("Ofrendas hechas en oro")){
+            return R.drawable.s3p4_oro;
+        }
+        if(imageName.equals("Ofrendas con animales")){
+            return R.drawable.s3p4_animales;
+        }
+        if(imageName.equals("Les enseñaban a cuidar a los niños, y los animales")){
+            return R.drawable.s3p5_ninos;
+        }
+        if(imageName.equals("Los cuidaban de los problemas climáticos")){
+            return R.drawable.s3p5_clima;
+        }
+        if(imageName.equals("Les daban sus alimentos")){
+            return R.drawable.s3p5_alimentos;
+        }
+        if(imageName.equals("Pensaban que eran sus padres")){
+            return R.drawable.s3p5_padres;
+        }
+
+        /*Inicio Estacion # 4*/
+        if(imageName.equals("5")){
+            return R.drawable.s4p1_5;
+        }
+        if(imageName.equals("4")){
+            return R.drawable.s4p1_4;
+        }
+        if(imageName.equals("6")){
+            return R.drawable.s4p1_6;
+        }
+        if(imageName.equals("7")){
+            return R.drawable.s4p1_7;
+        }
+        if(imageName.equals("Cundinamarca")){
+            return R.drawable.s4p2_cundinamarca;
+        }
+        if(imageName.equals("Caqueta")){
+            return R.drawable.s4p2_caqueta;
+        }
+        if(imageName.equals("Putumayo")){
+            return R.drawable.s4p2_putumayo;
+        }
+        if(imageName.equals("Choco")){
+            return R.drawable.s4p2_choco;
+        }
+        if(imageName.equals("Iguaque")){
+            return R.drawable.s4p3_iguaque;
+        }
+        if(imageName.equals("Ubaque")){
+            return R.drawable.s4p3_ubaque;
+        }
+        if(imageName.equals("Tota")){
+            return R.drawable.s4p3_tota;
+        }
+        if(imageName.equals("Guatavita")){
+            return R.drawable.s4p3_guatavita;
+        }
+        if(imageName.equals("Guasca")){
+            return R.drawable.s4p4_guasca;
+        }
+        if(imageName.equals("Teusacá")){
+            return R.drawable.s4p4_teusaca;
+        }
+        if(imageName.equals("Siecha")){
+            return R.drawable.s4p4_siecha;
+        }
+        if(imageName.equals("Pescar")){
+            return R.drawable.s4p5_pescar;
+        }
+        if(imageName.equals("Nadar")){
+            return R.drawable.s4p5_nadar;
+        }
+        if(imageName.equals("Cocinar para toda la comunidad")){
+            return R.drawable.s4p5_cocinar;
+        }
+        if(imageName.equals("Rituales y cantos")){
+            return R.drawable.s4p5_ritual;
+        }
 
         return R.drawable.logo100x100;
+
     }
     /* Metodo de implementacion de Sonido */
     public void feedbackAnswer(int valorRespuesta){
@@ -274,9 +484,10 @@ public class QuestionActivity extends AppCompatActivity {
     public  void cambiarActivity(){
         Intent intent = new Intent(this, StationResultActivity.class);
         Bundle extras = new Bundle();
-        extras.putString("EXTRA_RESULT_STATION",String.valueOf(preguntasCorrectas) + "/5");
+        extras.putString("EXTRA_RESULT_STATION",String.valueOf(preguntasCorrectas));
         extras.putString("EXTRA_TITLE_STATION",this.tituloEstacion);
         extras.putString("EXTRA_ID_STATION",this.idEstacion);
+        extras.putString("EXTRA_CURRENT_USER",this.currentUser);
         intent.putExtras(extras);
         startActivity(intent);
     }

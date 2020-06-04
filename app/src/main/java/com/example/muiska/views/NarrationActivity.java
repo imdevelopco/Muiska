@@ -16,7 +16,8 @@ import static android.content.Intent.EXTRA_TEXT;
 public class NarrationActivity extends AppCompatActivity {
 
     private CharSequence enunciado,tituloStation;
-    private String idEstacion;
+    private String idEstacion,currentUser;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +25,7 @@ public class NarrationActivity extends AppCompatActivity {
         Bundle extra = getIntent().getExtras();
         tituloStation = extra.getString("EXTRA_TITLE_STATION");
         idEstacion = extra.getString("EXTRA_ID_STATION");
+        currentUser = extra.getString("EXTRA_CURRENT_USER");
         setTextNarration();
     }
 
@@ -39,6 +41,7 @@ public class NarrationActivity extends AppCompatActivity {
         Bundle extras = new Bundle();
         extras.putString("EXTRA_ID_STATION",this.idEstacion);
         extras.putString("EXTRA_TITLE_STATION", String.valueOf(this.tituloStation));
+        extras.putString("EXTRA_CURRENT_USER",this.currentUser);
         intent.putExtras(extras);
         startActivity(intent);
     }

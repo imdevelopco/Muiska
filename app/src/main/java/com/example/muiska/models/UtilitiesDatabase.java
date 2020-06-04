@@ -73,10 +73,12 @@ public class UtilitiesDatabase {
     public class Tabla_Respuesta_Pregunta{
         static final  String TABLE_NAME = "respuesta_pregunta";
         static final  String ID_ESTACION="id_estacion";
+        static final  String NICKNAME="nickname";
         static final  String RESPUESTAS_VALIDAS ="respuestas_validas";
         static final  String CREATE_TABLE_RESPUESTA_PREGUNTA    = CREATE_TABLE + TABLE_NAME + "("
                                                                 + ID_ESTACION + INTEGER + NOT_NULL + ","
                                                                 + RESPUESTAS_VALIDAS + INTEGER + NOT_NULL + ","
+                                                                + NICKNAME + TEXT + NOT_NULL + ","
                                                                 + FOREIGN_KEY + ID_ESTACION + REFERENCES
                                                                 + Tabla_Estacion.TABLE_NAME + "(" + ID + "));";
     }
