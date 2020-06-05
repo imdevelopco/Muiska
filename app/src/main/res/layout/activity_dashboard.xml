@@ -11,72 +11,65 @@
         android:layout_width="100dp"
         android:layout_height="80dp"
         android:layout_marginStart="64dp"
-        android:layout_marginTop="164dp"
+        android:layout_marginTop="174dp"
         android:contentDescription="Estacion # 1: Costumbres y modos de vida, da click para jugar"
-        android:onClick="cambiarActivityCostumbres"
+        android:onClick="cambiarActivityOne"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/bluestation" />
 
     <ImageView
-        android:id="@+id/imageView9"
+        android:id="@+id/imageStationThree"
         android:layout_width="100dp"
         android:layout_height="80dp"
         android:layout_marginStart="64dp"
         android:layout_marginTop="96dp"
         android:contentDescription="Estación # 3, da click para jugar esta estación"
+        android:onClick="cambiarActivityThree"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageStationOne"
         app:srcCompat="@drawable/redstation" />
 
     <ImageView
-        android:id="@+id/imageView8"
+        android:id="@+id/imageStationTwo"
         android:layout_width="100dp"
         android:layout_height="80dp"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="164dp"
-        android:onClick="cambiarActivityMap"
+        android:layout_marginTop="174dp"
         android:contentDescription="Estación # 2, da click para jugar esta estación"
+        android:onClick="cambiarActivityTwo"
         app:layout_constraintStart_toEndOf="@+id/imageStationOne"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/greenstation" />
 
     <ImageView
-        android:id="@+id/imageView10"
+        android:id="@+id/imageStationFour"
         android:layout_width="100dp"
         android:layout_height="80dp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="96dp"
         android:contentDescription="Estación # 4, da click para jugar esta estación"
-        app:layout_constraintStart_toEndOf="@+id/imageView9"
-        app:layout_constraintTop_toBottomOf="@+id/imageView8"
+        android:onClick="cambiarActivityFour"
+        app:layout_constraintStart_toEndOf="@+id/imageStationThree"
+        app:layout_constraintTop_toBottomOf="@+id/imageStationTwo"
         app:srcCompat="@drawable/yellowstation" />
 
     <ImageView
-        android:id="@+id/imageView11"
+        android:id="@+id/corona"
         android:layout_width="74dp"
         android:layout_height="72dp"
         android:layout_marginStart="148dp"
         android:layout_marginTop="4dp"
+        android:onClick="check"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/corona" />
 
     <TextView
-        android:id="@+id/scoreStationOne"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="16dp"
-        android:text="0/10"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageStationOne" />
-
-    <TextView
         android:id="@+id/stationTwoTextView"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="125dp"
         android:text="Ubicación"
         android:textAlignment="center"
@@ -87,13 +80,14 @@
 
     <TextView
         android:id="@+id/stationOneTextView"
-        android:layout_width="100dp"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="60dp"
         android:layout_marginTop="125dp"
         android:layout_marginBottom="10dp"
         android:text="Estacion # 1"
         android:textAlignment="center"
+        android:textSize="14sp"
         app:layout_constraintBottom_toTopOf="@+id/imageStationOne"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -104,64 +98,35 @@
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="60dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="64dp"
         android:text="Estacion # 3"
         android:textAlignment="center"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scoreStationOne" />
-
-    <TextView
-        android:id="@+id/scoreStationTwo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="120dp"
-        android:layout_marginTop="16dp"
-        android:text="0/10"
-        app:layout_constraintStart_toEndOf="@+id/scoreStationOne"
-        app:layout_constraintTop_toBottomOf="@+id/imageView8" />
+        app:layout_constraintTop_toBottomOf="@+id/imageStationOne" />
 
     <TextView
         android:id="@+id/stationFourTextView"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="64dp"
         android:text="Estacion # 4"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/stationThreeTextView"
-        app:layout_constraintTop_toBottomOf="@+id/scoreStationTwo" />
-
-    <TextView
-        android:id="@+id/scoreStationFour"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="120dp"
-        android:layout_marginTop="24dp"
-        android:text="0/10"
-        app:layout_constraintStart_toEndOf="@+id/scoreStationThree"
-        app:layout_constraintTop_toBottomOf="@+id/imageView10" />
-
-    <TextView
-        android:id="@+id/scoreStationThree"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="24dp"
-        android:text="0/10"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView9" />
+        app:layout_constraintTop_toBottomOf="@+id/imageStationTwo" />
 
     <TextView
         android:id="@+id/titleProgress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="116dp"
+        android:onClick="goToRanking"
         android:text="Progreso"
         android:textSize="36sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView11" />
+        app:layout_constraintTop_toBottomOf="@+id/corona" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

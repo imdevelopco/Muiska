@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.muiska.R;
+import com.example.muiska.models.UserDAO;
 import com.example.muiska.views.DashboardActivity;
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -27,8 +28,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public  void cambiarActivity(View view){
-        Intent intent = new Intent(this, DashboardActivity.class);
+        Intent intent = new Intent(this, MapsActivity.class);
+        Bundle extras = new Bundle();
+        extras.putString("EXTRA_CURRENT_USER",String.valueOf(inputName.getText()));
+        intent.putExtras(extras);
         startActivity(intent);
+    }
+
+    public  void  registerUser(String name,String edad){
+        UserDAO userDAO = new UserDAO(this.getApplicationContext());
+        userDAO.insertUser(name,edad);
     }
 
     public static void popup(String textToView,Context context){
@@ -54,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
             this.popup("Edad no valida",this.getApplicationContext());
 
         }else{
+            registerUser(String.valueOf(inputName.getText()),String.valueOf(inputEdad.getText()));
             this.cambiarActivity(view);
         }
 
