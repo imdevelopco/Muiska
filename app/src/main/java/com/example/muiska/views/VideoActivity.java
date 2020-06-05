@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.muiska.R;
@@ -23,6 +24,10 @@ public class VideoActivity extends YouTubeBaseActivity implements YouTubePlayer.
 
     private static final int RECOVERY_REQUEST = 1;
     private YouTubePlayerView youTubeView;
+    private String titleVideo;
+    private String currentUser;
+    private String tituloStation;
+    private String idEstacion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +35,13 @@ public class VideoActivity extends YouTubeBaseActivity implements YouTubePlayer.
         setContentView(R.layout.activity_video);
         youTubeView = (YouTubePlayerView) findViewById(R.id.youtube_view);
         youTubeView.initialize(Config.YOUTUBE_API_KEY, this);
+        Bundle extras = getIntent().getExtras();
+        currentUser = extras.getString("EXTRA_CURRENT_USER");
+        titleVideo = extras.getString("EXTRA_ID_VIDEO");
+        tituloStation = extras.getString("EXTRA_TITLE_STATION");
+        idEstacion = extras.getString("EXTRA_ID_STATION");
+        TextView titleVideoTv = findViewById(R.id.titleVideo);
+        titleVideoTv.setText(tituloStation);
     }
 
 
@@ -37,7 +49,7 @@ public class VideoActivity extends YouTubeBaseActivity implements YouTubePlayer.
     public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
         if (!b) {
             //youTubePlayer.setFullscreen(true);
-            youTubePlayer.loadVideo("aA6_lcE0b6g");
+            youTubePlayer.loadVideo(this.titleVideo);
             youTubePlayer.play();
         }
 
@@ -63,5 +75,15 @@ public class VideoActivity extends YouTubeBaseActivity implements YouTubePlayer.
 
     protected YouTubePlayer.Provider getYouTubePlayerProvider() {
         return youTubeView;
+    }
+
+    public  void cambiarActivity(View view){
+        Intent intent = new Intent(this, QuestionActivity.class);
+        Bundle extras = new Bundle();
+        extras.putString("EXTRA_ID_STATION",this.idEstacion);
+        extras.putString("EXTRA_TITLE_STATION", String.valueOf(this.tituloStation));
+        extras.putString("EXTRA_CURRENT_USER",this.currentUser);
+        intent.putExtras(extras);
+        startActivity(intent);
     }
 }

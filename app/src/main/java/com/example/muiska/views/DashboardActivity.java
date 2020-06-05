@@ -19,6 +19,8 @@ public class DashboardActivity extends AppCompatActivity {
     private String currentUser,idStationToPlay;
     private boolean created;
     private ImageView stationOne,stationTwo,stationThree,stationFour;
+    private static  TextView scoreStationOne,scoreStationTwo,scoreStationThree,scoreStationFour;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,13 +41,12 @@ public class DashboardActivity extends AppCompatActivity {
     @Override
     protected void onResume(){
         super.onResume();
-        if(stationOnePlayed){
-            Bundle extra = getIntent().getExtras();
-            String data = extra.getString("EXTRA_RESULT_STATION");
-            int id = extra.getInt("EXTRA_ID_STATION");
-            this.setScoreStation(id,data);
+        if(stationOnePlayed && stationTwoPlayed && stationThreePlayed && stationFourPlayed){
+            Intent intent = new Intent(this, ScoresActivity.class);
+            Bundle extras = new Bundle();
+            intent.putExtras(extras);
+            startActivity(intent);
         }
-
     }
     public void check(View view){
         UserDAO userDAO = new UserDAO(getApplicationContext());
@@ -63,33 +64,15 @@ public class DashboardActivity extends AppCompatActivity {
     public static void setStationFourPlayed(boolean value){
         stationFourPlayed = value;
     }
-    public void setScoreStation(int idStation,String data){
-        /* Método para calificar el juego por estación */
-        if(idStation == 1){
-            TextView scoreStationOne = findViewById(R.id.scoreStationOne);
-            scoreStationOne.setText(data);
-        }
-        if(idStation == 2){
-            TextView scoreStationTwo = findViewById(R.id.scoreStationTwo);
-            scoreStationTwo.setText(data);
-        }
-        if(idStation == 3){
-            TextView scoreStationThree = findViewById(R.id.scoreStationThree);
-            scoreStationThree.setText(data);
-        }
-        if(idStation == 4){
-            TextView scoreStationFour = findViewById(R.id.scoreStationFour);
-            scoreStationFour.setText(data);
-        }
 
-    }
     public  void cambiarActivityOne(View view){
-        Intent intent = new Intent(this, NarrationActivity.class);
+        Intent intent = new Intent(this, VideoActivity.class);
         Bundle extras = new Bundle();
         if(!stationOnePlayed) {
             if (stationOne.isPressed()) {
                 this.idStationToPlay = "1";
             }
+            extras.putString("EXTRA_ID_VIDEO", "aA6_lcE0b6g");
             extras.putString("EXTRA_TITLE_STATION", String.valueOf(this.nameStationOne));
             extras.putString("EXTRA_ID_STATION", idStationToPlay);
             extras.putString("EXTRA_CURRENT_USER",this.currentUser);
@@ -100,12 +83,13 @@ public class DashboardActivity extends AppCompatActivity {
         }
     }
     public  void cambiarActivityTwo(View view){
-        Intent intent = new Intent(this, NarrationActivity.class);
+        Intent intent = new Intent(this, VideoActivity.class);
         Bundle extras = new Bundle();
         if(!stationTwoPlayed) {
             if (stationTwo.isPressed()) {
                 this.idStationToPlay = "2";
             }
+            extras.putString("EXTRA_ID_VIDEO", "5gOgQfChZ4Q" );
             extras.putString("EXTRA_TITLE_STATION", String.valueOf(this.nameStationTwo));
             extras.putString("EXTRA_ID_STATION", idStationToPlay);
             extras.putString("EXTRA_CURRENT_USER",this.currentUser);
@@ -117,12 +101,13 @@ public class DashboardActivity extends AppCompatActivity {
     }
 
     public  void cambiarActivityThree(View view){
-        Intent intent = new Intent(this, NarrationActivity.class);
+        Intent intent = new Intent(this, VideoActivity.class);
         Bundle extras = new Bundle();
         if(!stationThreePlayed) {
             if (stationThree.isPressed()) {
                 this.idStationToPlay = "3";
             }
+            extras.putString("EXTRA_ID_VIDEO", "-oackM56m70");
             extras.putString("EXTRA_TITLE_STATION", String.valueOf(this.nameStationThree));
             extras.putString("EXTRA_ID_STATION", idStationToPlay);
             extras.putString("EXTRA_CURRENT_USER",this.currentUser);
@@ -133,12 +118,13 @@ public class DashboardActivity extends AppCompatActivity {
         }
     }
     public  void cambiarActivityFour(View view){
-        Intent intent = new Intent(this, NarrationActivity.class);
+        Intent intent = new Intent(this, VideoActivity.class);
         Bundle extras = new Bundle();
         if(!stationFourPlayed) {
             if (stationFour.isPressed()) {
                 this.idStationToPlay = "4";
             }
+            extras.putString("EXTRA_ID_VIDEO", "G0FDrh4WCn4");
             extras.putString("EXTRA_TITLE_STATION", String.valueOf(this.nameStationFour));
             extras.putString("EXTRA_ID_STATION", idStationToPlay);
             extras.putString("EXTRA_CURRENT_USER",this.currentUser);
@@ -149,13 +135,9 @@ public class DashboardActivity extends AppCompatActivity {
         }
     }
     public void goToRanking(View view){
-        Intent intent = new Intent(this, RankingActivity.class);
+        Intent intent = new Intent(this, ScoresActivity.class);
         startActivity(intent);
 
-    }
-    public  void cambiarActivityMap(View view){
-        Intent intent = new Intent(this, MapsActivity.class);
-        startActivity(intent);
     }
     public void setTitleStationOne(){
         TextView StationOneTv =  (TextView) findViewById(R.id.stationOneTextView);

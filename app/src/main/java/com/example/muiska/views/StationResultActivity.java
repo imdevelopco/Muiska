@@ -39,9 +39,11 @@ public class StationResultActivity extends AppCompatActivity {
                 DashboardActivity.setStationOnePlayed(true);
                 Intent intent = new Intent(this, DashboardActivity.class);
                 Bundle extras = new Bundle();
-                extras.putString("EXTRA_RESULT_STATION",resultado);
+                extras.putString("EXTRA_RESULT_STATION_ONE",resultado + "/5");
                 extras.putInt("EXTRA_ID_STATION",Integer.parseInt(this.idEstacion));
                 intent.putExtras(extras);
+                AnswerQuestionsDAO answerQuestionsDAO = new AnswerQuestionsDAO(getApplicationContext());
+                answerQuestionsDAO.insertResult(this.currentUser,Integer.parseInt(resultado),Integer.parseInt(idEstacion));
                 startActivity(intent);
             }
             break;
@@ -49,9 +51,11 @@ public class StationResultActivity extends AppCompatActivity {
                 DashboardActivity.setStationTwoPlayed(true);
                 Intent intent = new Intent(this, DashboardActivity.class);
                 Bundle extras = new Bundle();
-                extras.putString("EXTRA_RESULT_STATION",resultado);
+                extras.putString("EXTRA_RESULT_STATION_TWO",resultado+ "/5");
                 extras.putInt("EXTRA_ID_STATION",Integer.parseInt(this.idEstacion));
                 intent.putExtras(extras);
+                AnswerQuestionsDAO answerQuestionsDAO = new AnswerQuestionsDAO(getApplicationContext());
+                answerQuestionsDAO.insertResult(this.currentUser,Integer.parseInt(resultado),Integer.parseInt(idEstacion));
                 startActivity(intent);
             }
             break;
@@ -59,9 +63,13 @@ public class StationResultActivity extends AppCompatActivity {
                 DashboardActivity.setStationThreePlayed(true);
                 Intent intent = new Intent(this, DashboardActivity.class);
                 Bundle extras = new Bundle();
-                extras.putString("EXTRA_RESULT_STATION",resultado);
+
+
+                extras.putString("EXTRA_RESULT_STATION_THREE",resultado+ "/5");
                 extras.putInt("EXTRA_ID_STATION",Integer.parseInt(this.idEstacion));
                 intent.putExtras(extras);
+                AnswerQuestionsDAO answerQuestionsDAO = new AnswerQuestionsDAO(getApplicationContext());
+                answerQuestionsDAO.insertResult(this.currentUser,Integer.parseInt(resultado),Integer.parseInt(idEstacion));
                 startActivity(intent);
             }
             break;
@@ -69,15 +77,16 @@ public class StationResultActivity extends AppCompatActivity {
                 DashboardActivity.setStationFourPlayed(true);
                 Intent intent = new Intent(this, DashboardActivity.class);
                 Bundle extras = new Bundle();
-                extras.putString("EXTRA_RESULT_STATION",resultado + "/5");
+                extras.putString("EXTRA_RESULT_STATION_FOUR",resultado + "/5");
                 extras.putInt("EXTRA_ID_STATION",Integer.parseInt(this.idEstacion));
                 intent.putExtras(extras);
+                AnswerQuestionsDAO answerQuestionsDAO = new AnswerQuestionsDAO(getApplicationContext());
+                answerQuestionsDAO.insertResult(this.currentUser,Integer.parseInt(resultado),Integer.parseInt(idEstacion));
                 startActivity(intent);
             }
             break;
         }
-        AnswerQuestionsDAO answerQuestionsDAO = new AnswerQuestionsDAO(getApplicationContext());
-        answerQuestionsDAO.insertResult(this.currentUser,Integer.parseInt(resultado),Integer.parseInt(idEstacion));
+
     }
 
     @Override
